@@ -1,5 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, StaticQuery, graphql } from "gatsby"
+import Image from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -15,7 +16,19 @@ class IndexPage extends React.Component {
           title="Home"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <img style={{ margin: 0 }} src="./GatsbyScene.svg" alt="Gatsby Scene" />
+        <StaticQuery
+          query={indexQuery}
+          render={data => {
+            return (
+              <Image
+                fluid={data.avatar.childImageSharp.fluid}
+                imgStyle={{
+                  borderRadius: `50%`,
+                }}
+              />
+            )
+          }}
+        />
         <h1>
           Hey people{" "}
           <span role="img" aria-label="wave emoji">
@@ -35,5 +48,17 @@ class IndexPage extends React.Component {
     )
   }
 }
+
+const indexQuery = graphql`
+  query indexQuery {
+    avatar: file(absolutePath: {regex: "/profile.jpg/"}) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage

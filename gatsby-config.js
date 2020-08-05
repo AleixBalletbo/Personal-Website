@@ -3,9 +3,12 @@ module.exports = {
     title: `Aleix Balletbó's Personal Website`,
     author: `Aleix Balletbó`,
     description: `My personal website with my projects, a blog and other stuff.`,
+    aboutMe: `Software engineer passionate about data intensive applications, architecture, patterns and testing.`,
     siteUrl: `https://aleixballetbo.netlify.app`,
     social: {
       twitter: `AleixBalletbo`,
+      devto: `aleixballetbo`,
+      github: `AleixBalletbo`
     },
   },
   plugins: [
@@ -77,7 +80,7 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         // edit below
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/profile.jpg`,
       },
     },
     {
