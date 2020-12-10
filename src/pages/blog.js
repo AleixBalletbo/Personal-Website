@@ -4,8 +4,8 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 import Button from "../components/button"
+import BlogEntry from "../components/blog-entry"
 
 class Blog extends React.Component {
   render() {
@@ -19,28 +19,15 @@ class Blog extends React.Component {
         <Bio />
         <div style={{ margin: "20px 0 40px" }}>
           {posts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug
             return (
-              <div key={node.fields.slug}>
-                <h3
-                  style={{
-                    marginBottom: rhythm(1 / 4),
-                  }}
-                >
-                  <Link
-                    style={{ boxShadow: `none` }}
-                    to={`/blog${node.fields.slug}`}
-                  >
-                    {title}
-                  </Link>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </div>
+              <BlogEntry
+                key={node.fields.slug}
+                cover={node.frontmatter.cover.publicURL}
+                title={node.frontmatter.title || node.fields.slug}
+                slug={node.fields.slug}
+                date={node.frontmatter.date}
+                description={node.frontmatter.description}
+                excerpt={node.excerpt}/>
             )
           })}
         </div>
@@ -59,12 +46,12 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        subtitle
       }
     }
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          excerpt
           fields {
             slug
           }
@@ -72,6 +59,9 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            cover {
+              publicURL
+            }
           }
         }
       }

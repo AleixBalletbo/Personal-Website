@@ -8,25 +8,18 @@ import Button from "../components/button"
 
 class IndexPage extends React.Component {
   render() {
-    const siteTitle = "Gatsby Starter Personal Website"
-
+    const { data } = this.props
+    const siteTitle = data.site.siteMetadata.title
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
           title="Home"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <StaticQuery
-          query={indexQuery}
-          render={data => {
-            return (
-              <Image
-                fluid={data.avatar.childImageSharp.fluid}
-                imgStyle={{
-                  borderRadius: `50%`,
-                }}
-              />
-            )
+        <Image
+          fluid={data.avatar.childImageSharp.fluid}
+          imgStyle={{
+            borderRadius: `50%`,
           }}
         />
         <h1>
@@ -49,8 +42,13 @@ class IndexPage extends React.Component {
   }
 }
 
-const indexQuery = graphql`
-  query indexQuery {
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     avatar: file(absolutePath: {regex: "/profile.jpg/"}) {
       childImageSharp {
         fluid {

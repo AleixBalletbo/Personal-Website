@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Aleix Balletbó's Personal Website`,
+    title: `Aleix Balletbó`,
+    subtitle: `Software engineer and technology enthusiast`,
     author: `Aleix Balletbó`,
     description: `My personal website with my projects, a blog and other stuff.`,
     aboutMe: `Software engineer passionate about data intensive applications, architecture, patterns and testing.`,
@@ -73,8 +74,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Aleix Balletbó's Personal Website`,
+        short_name: `AB site`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,

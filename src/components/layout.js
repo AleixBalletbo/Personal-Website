@@ -1,12 +1,13 @@
 import React from "react"
-import { Link } from "gatsby"
-import styled from "styled-components"
+import { Link, StaticQuery } from "gatsby"
+import styled, { ThemeProvider } from "styled-components"
 
 import { rhythm, scale } from "../utils/typography"
+import Header from "./header.js"
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
+    const { location, title, subtitle, children } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
     const blogPath = `${__PATH_PREFIX__}/blog/`
     let header
@@ -18,6 +19,8 @@ class Layout extends React.Component {
             ...scale(1.5),
             marginBottom: rhythm(1.5),
             marginTop: 0,
+            marginBottom: 0,
+            color: theme.backgroundColor
           }}
         >
           <Link
@@ -38,6 +41,8 @@ class Layout extends React.Component {
           style={{
             fontFamily: `Montserrat, sans-serif`,
             marginTop: 0,
+            marginBottom: 0,
+            color: theme.backgroundColor
           }}
         >
           <Link
@@ -54,35 +59,50 @@ class Layout extends React.Component {
       )
     }
     return (
-      <Wrapper>
-        <div
-          style={{
-            marginLeft: `auto`,
-            marginRight: `auto`,
-            maxWidth: rhythm(24),
-            padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-          }}
-        >
-          <header>{header}</header>
-          <main>{children}</main>
-        </div>
-        <Footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </Footer>
-      </Wrapper>
+      <ThemeProvider theme={theme}>
+        <Wrapper>
+          <Header/>
+          <div
+            style={{
+              marginLeft: `auto`,
+              marginRight: `auto`,
+              maxWidth: rhythm(30),
+              padding: `${rhythm(3 / 4)}`,
+            }}
+          >
+            <main>{children}</main>
+          </div>
+          <Footer>
+            © Aleix Balletbó {new Date().getFullYear()}
+            <br/>
+            Built with {' '}
+            <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </Footer>
+        </Wrapper>
+      </ThemeProvider>
     )
   }
 }
 
 const Wrapper = styled.div`
   min-height: 100vh;
+  background-color: ${props => props.theme.backgroundColor}; 
 `
 
 const Footer = styled.footer`
   text-align: center;
-  margin: 24px;
+  padding: ${rhythm(1 / 2)};
+  background-color: ${props => props.theme.accentColor};
+  color: ${props => props.theme.backgroundColor}; 
 `
+
+const theme = {
+  backgroundColor: "#272F3F",
+  primaryColor: "#171C26",
+  secondaryColor: "#3D5A80",
+  tertiaryColor: "#98C1D9",
+  quaternaryColor: "#E0FBFC",
+  accentColor: "#EE6C4D",
+}
 
 export default Layout

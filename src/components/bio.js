@@ -29,9 +29,6 @@ function Bio() {
               }}
               imgStyle={{
                 borderRadius: `50%`,
-                borderWidth: 3 + 'px',
-                borderColor: 'rgb(64, 64, 64)',
-                borderStyle: 'solid'
               }}
             />
             <div>
@@ -83,13 +80,9 @@ const bioQuery = graphql`
 
 const Container = styled.div`
   display: flex;
-  //background-image: linear-gradient(90deg, rgb(77, 166, 255), rgb(179, 128, 255));
-  background-color: lightgray;
+  background-color: ${props => props.theme.primaryColor};
   padding: 10px;
   border-radius: 10px;
-  border-width: 3px;
-  border-color: rgb(64, 64, 64);
-  border-style: solid;
   justify-content: center;
   align-items: center;
 `
@@ -97,12 +90,13 @@ const Container = styled.div`
 const Title = styled.span`
   display: block;
   padding-bottom: 5px;
+  color: ${props => props.theme.tertiaryColor};
 `
 
 const Description = styled.span`
   display: block;
   padding-bottom: 5px;
-  color: rgb(64, 64, 64);
+  color: ${props => props.theme.tertiaryColor};
   font-size: 80%;
 `
 const SocialMediaLink = styled.a`
