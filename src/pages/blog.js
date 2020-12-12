@@ -16,8 +16,7 @@ class Blog extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All posts" />
-        <Bio />
-        <div style={{ margin: "20px 0 40px" }}>
+        <div>
           {posts.map(({ node }) => {
             return (
               <BlogEntry
@@ -32,7 +31,7 @@ class Blog extends React.Component {
           })}
         </div>
         <Link to="/">
-          <Button marginTop="85px">Go Home</Button>
+          <Button>Go Home</Button>
         </Link>
       </Layout>
     )
