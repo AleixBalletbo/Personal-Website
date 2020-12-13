@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import styled from "styled-components"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -19,25 +20,25 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <h1>{post.frontmatter.title}</h1>
-        <p
-          style={{
-            ...scale(-1 / 5),
-            display: `block`,
-            marginBottom: rhythm(1),
-            marginTop: rhythm(-1),
-          }}
-        >
-          {post.frontmatter.date}
-        </p>
-        <MDXRenderer>{post.body}</MDXRenderer>
+        <Title>{post.frontmatter.title}</Title>
+        <Content>
+          <p
+            style={{
+              ...scale(-1 / 5),
+              display: `block`,
+              marginBottom: rhythm(1)
+            }}
+          >
+            {post.frontmatter.date}
+          </p>
+          <MDXRenderer>{post.body}</MDXRenderer>
+        </Content>
         <hr
           style={{
             marginBottom: rhythm(1),
           }}
         />
         <Bio />
-
         <ul
           style={{
             display: `flex`,
@@ -68,6 +69,16 @@ class BlogPostTemplate extends React.Component {
 }
 
 export default BlogPostTemplate
+
+const Title = styled.h1`
+  margin-top: 0px;
+  margin-bottom: 10px;
+  color: ${props => props.theme.accentColor};
+`
+
+const Content = styled.div`
+  color: ${props => props.theme.quaternaryColor};
+`
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {

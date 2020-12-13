@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, StaticQuery } from "gatsby"
 import styled, { ThemeProvider } from "styled-components"
+import { MDXProvider } from "@mdx-js/react"
 
 import { rhythm, scale } from "../utils/typography"
 import Header from "./header.js"
@@ -70,7 +71,13 @@ class Layout extends React.Component {
               padding: `${rhythm(3 / 4)}`,
             }}
           >
-            <main>{children}</main>
+            <MDXProvider
+              components={{
+                pre: props => <pre {...props} style = {{backgroundColor: theme.primaryColor}}/>
+              }}
+            >
+              <main>{children}</main>
+            </MDXProvider>
           </div>
           <Footer>
             © Aleix Balletbó {new Date().getFullYear()}
