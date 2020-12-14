@@ -16,12 +16,6 @@ class IndexPage extends React.Component {
           title="Home"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <Image
-          fluid={data.avatar.childImageSharp.fluid}
-          imgStyle={{
-            borderRadius: `50%`,
-          }}
-        />
         <h1>
           Hey people{" "}
           <span role="img" aria-label="wave emoji">

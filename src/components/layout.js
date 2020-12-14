@@ -12,73 +12,21 @@ class Layout extends React.Component {
     const rootPath = `${__PATH_PREFIX__}/`
     const blogPath = `${__PATH_PREFIX__}/blog/`
     let header
-
-    if (location.pathname === rootPath || location.pathname === blogPath) {
-      header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-            marginBottom: 0,
-            color: theme.backgroundColor
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={location.pathname === blogPath ? `/blog/` : `/`}
-          >
-            {title}
-          </Link>
-        </h1>
-      )
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
-            marginBottom: 0,
-            color: theme.backgroundColor
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/blog/`}
-          >
-            {title}
-          </Link>
-        </h3>
-      )
-    }
     return (
       <ThemeProvider theme={theme}>
         <Wrapper>
           <Header/>
-          <div
-            style={{
-              marginLeft: `auto`,
-              marginRight: `auto`,
-              maxWidth: rhythm(30),
-              padding: `${rhythm(3 / 4)}`,
-            }}
-          >
+          <Content>
             <MDXProvider
               components={{
-                pre: props => <pre {...props} style = {{backgroundColor: theme.primaryColor}}/>
+                pre: props => <pre {...props} style = {{backgroundColor: theme.primaryColor}}/>,
+                a: props => <a {...props} style = {{color: theme.accentColor}}/>,
+                h2: props => <h2 {...props} style = {{color: theme.tertiaryColor}}/>
               }}
             >
               <main>{children}</main>
             </MDXProvider>
-          </div>
+          </Content>
           <Footer>
             © Aleix Balletbó {new Date().getFullYear()}
             <br/>
@@ -93,14 +41,26 @@ class Layout extends React.Component {
 
 const Wrapper = styled.div`
   min-height: 100vh;
-  background-color: ${props => props.theme.backgroundColor}; 
+  background-color: ${props => props.theme.backgroundColor};
+  display: flex;
+  flex-direction: column;
 `
+
+const Content = styled.div`
+  flex: 1 0 auto;
+  align-self: center;
+  width: 100%;
+  max-width: ${rhythm(30)};
+  padding: ${rhythm(3 / 4)};
+`
+
 
 const Footer = styled.footer`
   text-align: center;
   padding: ${rhythm(1 / 2)};
-  background-color: ${props => props.theme.accentColor};
-  color: ${props => props.theme.backgroundColor}; 
+  background-color: ${props => props.theme.primaryColor};
+  color: ${props => props.theme.tertiaryColor};
+  flex-shrink: 0;
 `
 
 const theme = {
