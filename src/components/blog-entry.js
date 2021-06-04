@@ -38,7 +38,7 @@ const Container = styled.div`
     &:hover {
       opacity: 0.8;
     }
-  `
+`
 const Image = styled.div`
   background-image: ${props => ('url('+props.cover+')')};
   background-size: cover;

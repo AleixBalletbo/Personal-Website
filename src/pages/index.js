@@ -5,6 +5,8 @@ import Image from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Button from "../components/button"
+import SectionArea from "../components/section-area"
+import SectionButton from "../components/section-button"
 
 class IndexPage extends React.Component {
   render() {
@@ -23,11 +25,11 @@ class IndexPage extends React.Component {
           </span>
         </h1>
         <p>Welcome to your new Gatsby website. You are on your home page.</p>
-        <p>
-          This starter comes out of the box with styled components and Gatsby's
-          default starter blog running on Netlify CMS.
-        </p>
-        <p>Now go build something great!</p>
+        <SectionArea>
+          <SectionButton/>
+          <SectionButton/>
+          <SectionButton/>
+        </SectionArea>
         <Link to="/blog/">
           <Button marginTop="35px">Go to Blog</Button>
         </Link>
