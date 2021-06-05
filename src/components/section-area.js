@@ -7,12 +7,12 @@ const SectionArea = props => (
 )
 
 const SectionAreaDiv = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    @media (max-width: 800px) {
-      flex-direction: column;
-    }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
 `
 
 export default SectionArea

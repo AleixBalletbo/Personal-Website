@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, StaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -18,13 +18,12 @@ class IndexPage extends React.Component {
           title="Home"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <h1>
+        <Intro>
           Hey people{" "}
           <span role="img" aria-label="wave emoji">
             👋
           </span>
-        </h1>
-        <p>Welcome to your new Gatsby website. You are on your home page.</p>
+        </Intro>
         <SectionArea>
           <SectionButton/>
           <SectionButton/>
@@ -53,6 +52,10 @@ export const pageQuery = graphql`
       }
     }
   }
+`
+
+const Intro = styled.h3`
+  margin-top: 0;
 `
 
 export default IndexPage

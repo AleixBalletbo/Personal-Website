@@ -68,13 +68,18 @@ const Container = styled.div`
 
 
 const Title = styled.h1`
-  ${scale(1.5)};
+  @media (max-width: 800px) {
+    font-size: 7vw;
+  }
   margin-top: 0;
   margin-bottom: 0;
   color: ${props => props.theme.backgroundColor};
 `
 
 const Subtitle = styled.h3`
+  @media (max-width: 800px) {
+    font-size: 4vw;
+  }
   margin-top: ${rhythm(1 / 2)};
   margin-bottom: 0;
   color: ${props => props.theme.backgroundColor};

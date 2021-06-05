@@ -7,8 +7,9 @@
 
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
 import styled from "styled-components"
+
+import ProfilePic from "./profile-pic.js"
 
 function Bio() {
   return (
@@ -18,19 +19,7 @@ function Bio() {
         const { author, social, aboutMe } = data.site.siteMetadata
         return (
           <Container>
-            <Image
-              fixed={data.avatar.childImageSharp.fixed}
-              alt={author}
-              style={{
-                marginRight: 10+'px',
-                marginBottom: 0,
-                minWidth: 100,
-                borderRadius: `100%`,
-              }}
-              imgStyle={{
-                borderRadius: `50%`,
-              }}
-            />
+            <ProfilePic/>
             <div>
               <Title>
                 Written by <strong>{author}</strong>
@@ -57,13 +46,6 @@ function Bio() {
 
 const bioQuery = graphql`
   query BioQuery {
-    avatar: file(absolutePath: { regex: "/profile.jpg/" }) {
-      childImageSharp {
-        fixed(width: 100, height: 100) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
     site {
       siteMetadata {
         author
@@ -115,7 +97,5 @@ const SocialMediaImage = styled.img`
     transform: scale(1.15, 1.15);
   }
 `
-
-
 
 export default Bio
