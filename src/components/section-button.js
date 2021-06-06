@@ -8,10 +8,11 @@ const SectionButton = props => (
 
 const SectionButtonDiv = styled.div`
     background-color: ${props => props.theme.accentColor};
-    border-radius: 10px;
+    border-radius: 2em;
     height: 15em;
     width: 15em;
     @media (max-width: 800px) {
+      border-radius: 1em;
       height: auto;
       width: 100%;
       margin-bottom: ${rhythm(3 / 4)};

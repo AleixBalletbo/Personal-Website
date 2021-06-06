@@ -23,7 +23,7 @@ class Layout extends React.Component {
                 h2: props => <h2 {...props} style = {{color: theme.tertiaryColor}}/>
               }}
             >
-              <main>{children}</main>
+              {children}
             </MDXProvider>
           </Content>
           <Footer>
@@ -46,13 +46,14 @@ const Wrapper = styled.div`
 `
 
 const Content = styled.div`
-  flex: 1 0 auto;
+  flex: 1;
   align-self: center;
   width: 100%;
   max-width: ${rhythm(30)};
   padding: ${rhythm(3 / 4)};
+  display: flex;
+  flex-direction: column;
 `
-
 
 const Footer = styled.footer`
   text-align: center;

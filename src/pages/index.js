@@ -18,20 +18,17 @@ class IndexPage extends React.Component {
           title="Home"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <Intro>
-          Hey people{" "}
-          <span role="img" aria-label="wave emoji">
-            👋
-          </span>
-        </Intro>
-        <SectionArea>
-          <SectionButton/>
-          <SectionButton/>
-          <SectionButton/>
-        </SectionArea>
-        <Link to="/blog/">
-          <Button marginTop="35px">Go to Blog</Button>
-        </Link>
+        <TextContainer>
+          <h3>Hi there! 😁 </h3>
+          <p>Welcome to my personal website.</p>
+        </TextContainer>
+        <ButtonsContainer>
+          <SectionArea>
+            <SectionButton/>
+            <SectionButton/>
+            <SectionButton/>
+          </SectionArea>
+        </ButtonsContainer>
       </Layout>
     )
   }
@@ -54,8 +51,20 @@ export const pageQuery = graphql`
   }
 `
 
-const Intro = styled.h3`
-  margin-top: 0;
+const TextContainer = styled.div`
+  @media (max-width: 800px) {
+    position: relative;
+  }
+  position: absolute;
+`
+
+const ButtonsContainer = styled.div`
+  @media (max-width: 800px) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  margin-top: auto;
+  margin-bottom: auto;
 `
 
 export default IndexPage
