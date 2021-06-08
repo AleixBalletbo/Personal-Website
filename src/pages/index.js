@@ -5,7 +5,6 @@ import {rhythm, scale} from "../utils/typography"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Button from "../components/button"
 import SectionArea from "../components/section-area"
 import SectionButton from "../components/section-button"
 
@@ -14,7 +13,7 @@ class IndexPage extends React.Component {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location} title={siteTitle} header="index">
         <SEO
           title="Home"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}

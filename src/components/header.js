@@ -4,37 +4,37 @@ import styled from "styled-components"
 
 import { rhythm, scale } from "../utils/typography"
 
-function Header() {
-  return (
-    <StaticQuery
-      query={headerQuery}
-      render={data => {
-        const { title, subtitle } = data.site.siteMetadata
-        return (
-          <Background>
-            <Container>
-              <Title>
-                <Link
-                  style={{
-                    boxShadow: `none`,
-                    textDecoration: `none`,
-                    color: `inherit`,
-                  }}
-                  to={`/`}
-                >
-                  {title}
-                </Link>
-              </Title>
+const Header = props => (
+  <StaticQuery
+    query={headerQuery}
+    render={data => {
+      const { title, subtitle } = data.site.siteMetadata
+      return (
+        <Background>
+          <Container>
+            <Title>
+              <Link
+                style={{
+                  boxShadow: `none`,
+                  textDecoration: `none`,
+                  color: `inherit`,
+                }}
+                to={`/`}
+              >
+                {title}
+              </Link>
+            </Title>
+            {props.type == "index" &&
               <Subtitle>
                   {subtitle}
               </Subtitle>
-            </Container>
-          </Background>
-        )
-      }}
-    />
-  )
-}
+            }
+          </Container>
+        </Background>
+      )
+    }}
+  />
+)
 
 export default Header
 

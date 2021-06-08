@@ -1,10 +1,8 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Button from "../components/button"
 import BlogEntry from "../components/blog-entry"
 
 class Blog extends React.Component {
@@ -30,9 +28,6 @@ class Blog extends React.Component {
             )
           })}
         </div>
-        <Link to="/">
-          <Button>Go Home</Button>
-        </Link>
       </Layout>
     )
   }
