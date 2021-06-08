@@ -1,9 +1,12 @@
 import React from "react"
 import styled from "styled-components"
 import { rhythm, scale } from "../utils/typography"
+import {Link} from "gatsby"
 
 const SectionButton = props => (
-  <SectionButtonDiv props={props}>{props.children}</SectionButtonDiv>
+  <Link to={props.link} style={{boxShadow: '0 0 0'}}>
+    <SectionButtonDiv props={props}>{props.children}</SectionButtonDiv>
+  </Link>
 )
 
 const SectionButtonDiv = styled.div`

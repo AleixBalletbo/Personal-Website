@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
+import {rhythm, scale} from "../utils/typography"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -19,12 +20,12 @@ class IndexPage extends React.Component {
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
         <TextContainer>
-          <h3>Hi there! 😁 </h3>
+          <Greetings>Hi there! 😁 </Greetings>
           <p>Welcome to my personal website.</p>
         </TextContainer>
         <ButtonsContainer>
           <SectionArea>
-            <SectionButton/>
+            <SectionButton link="/blog/"/>
             <SectionButton/>
             <SectionButton/>
           </SectionArea>
@@ -55,7 +56,15 @@ const TextContainer = styled.div`
   @media (max-width: 800px) {
     position: relative;
   }
-  position: absolute;
+  @media (min-height: 736px) and (min-width: 801px) {
+    position: absolute;
+  }
+  color: ${props => props.theme.quaternaryColor};
+`
+
+const Greetings = styled.h3`
+  color: ${props => props.theme.tertiaryColor};
+  margin-top: ${rhythm(3/4)};
 `
 
 const ButtonsContainer = styled.div`
