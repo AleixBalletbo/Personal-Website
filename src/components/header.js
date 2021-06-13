@@ -3,6 +3,7 @@ import { Link, StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
 import { rhythm, scale } from "../utils/typography"
+import Menu from "./menu"
 
 const Header = props => (
   <StaticQuery
@@ -11,7 +12,7 @@ const Header = props => (
       const { title, subtitle } = data.site.siteMetadata
       return (
         <Background>
-          <Container>
+          <Container type={props.type}>
             <Title>
               <Link
                 style={{
@@ -28,6 +29,9 @@ const Header = props => (
               <Subtitle>
                   {subtitle}
               </Subtitle>
+            }
+            {props.type != "index" &&
+              <Menu/>
             }
           </Container>
         </Background>
@@ -64,6 +68,9 @@ const Container = styled.div`
   margin-right: auto;
   max-width: ${rhythm(30)};
   padding: ${rhythm(3 / 4)};
+  display: flex;
+  flex-direction: ${props => props.type == "index" ? "column" : "row"};
+  justify-content: space-between;
 `
 
 

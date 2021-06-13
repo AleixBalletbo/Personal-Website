@@ -29,15 +29,6 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
-    -webkit-transition: opacity 0.4s ease-in-out;
-    -moz-transition: opacity 0.4s ease-in-out;
-    -ms-transition: opacity 0.4s ease-in-out;
-    -o-transition: opacity 0.4s ease-in-out;
-    transition: opacity 0.4s ease-in-out;
-    opacity: 1;
-    &:hover {
-      opacity: 0.8;
-    }
 `
 const Image = styled.div`
   background-image: ${props => ('url('+props.cover+')')};
