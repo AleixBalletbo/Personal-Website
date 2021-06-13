@@ -1,44 +1,49 @@
-import React from "react"
+import React, {useState} from "react"
 import { Link, StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
-import { rhythm, scale } from "../utils/typography"
-import Menu from "./menu"
+import { rhythm } from "../utils/typography"
+import Menu from "./menu/menu"
+import MobileMenu from "./menu/mobile-menu"
 
-const Header = props => (
-  <StaticQuery
-    query={headerQuery}
-    render={data => {
-      const { title, subtitle } = data.site.siteMetadata
-      return (
-        <Background>
-          <Container type={props.type}>
-            <Title>
-              <Link
-                style={{
-                  boxShadow: `none`,
-                  textDecoration: `none`,
-                  color: `inherit`,
-                }}
-                to={`/`}
-              >
-                {title}
-              </Link>
-            </Title>
-            {props.type == "index" &&
-              <Subtitle>
-                  {subtitle}
-              </Subtitle>
-            }
-            {props.type != "index" &&
-              <Menu/>
-            }
-          </Container>
-        </Background>
-      )
-    }}
-  />
-)
+const Header = props => {
+  const [open, setOpen] = useState(false);
+  return (
+    <StaticQuery
+      query={headerQuery}
+      render={data => {
+        const { title, subtitle } = data.site.siteMetadata
+        return (
+          <ExternalContainer>
+            <UpperInnerContainer type={props.type}>
+              <Title>
+                <Link
+                  style={{
+                    boxShadow: `none`,
+                    textDecoration: `none`,
+                    color: `inherit`,
+                  }}
+                  to={`/`}
+                >
+                  {title}
+                </Link>
+              </Title>
+              {props.type == "index" &&
+                <Subtitle>
+                    {subtitle}
+                </Subtitle>
+              }
+              {props.type != "index" &&
+                <Menu open={open} setOpen={setOpen}/>
+              }
+            </UpperInnerContainer>
+            <MobileMenu open={open}/>
+          </ExternalContainer>
+        )
+      }}
+    />
+  )
+}
 
 export default Header
 
@@ -59,13 +64,18 @@ const headerQuery = graphql`
   }
 `
 
-const Background = styled.header`
+const ExternalContainer = styled.header`
   background-color: ${props => props.theme.accentColor};
+  display: flex;
+  flex-direction: column;
+  flex-wrap:wrap;
 `
 
-const Container = styled.div`
+const UpperInnerContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+  flex: 1;
   max-width: ${rhythm(30)};
   padding: ${rhythm(3 / 4)};
   display: flex;

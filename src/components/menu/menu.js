@@ -2,7 +2,8 @@ import React from "react"
 import { Link, StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
-import { rhythm, scale } from "../utils/typography"
+import { rhythm, scale } from "../../utils/typography"
+import Burger from "./burger"
 
 const Menu = props => (
   <div>
@@ -18,6 +19,7 @@ const Menu = props => (
       </Link>
     </MenuContainer>
     <MobileMenuContainer>
+      <Burger open={props.open} setOpen={props.setOpen}/>
     </MobileMenuContainer>
   </div>
 )
@@ -27,7 +29,7 @@ const Menu = props => (
 const MenuContainer = styled.div`
   display:flex;
   justify-content: flex-end;
-  margin-top: ${rhythm(0.5715)};
+  margin-top: ${rhythm(0.572)};
   margin-bottom: ${rhythm(-3 / 4)};
   @media (max-width: 800px) {
     display: none;
@@ -59,6 +61,7 @@ const Button = styled.button`
   }};
   font-size: ${props => props.props.fontSize || "15px"};
   font-weight: ${props => props.props.fontWeight || "600"};
+  font-family: Montserrat, sans-serif;
   border-radius: ${props => {
     if (props.first) return "10px 0 0 0"
     else if (props.last) return "0 10px 0 0"
@@ -72,7 +75,6 @@ const Button = styled.button`
 // Mobile
 
 const MobileMenuContainer = styled.div`
-  display:flex;
   @media (min-width: 800px) {
     display: none;
   }
