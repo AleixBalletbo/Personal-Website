@@ -51,13 +51,19 @@ const Content = styled.div`
   width: 100%;
   max-width: ${rhythm(30)};
   padding: ${rhythm(3 / 4)};
+  @media (max-width: 800px) {
+    padding: ${rhythm(1 / 2)};
+  }
   display: flex;
   flex-direction: column;
 `
 
 const Footer = styled.footer`
   text-align: center;
-  padding: ${rhythm(1 / 2)};
+  padding: ${rhythm(3 / 4)};
+  @media (max-width: 800px) {
+    padding: ${rhythm(1 / 2)};
+  }
   background-color: ${props => props.theme.primaryColor};
   color: ${props => props.theme.tertiaryColor};
   flex-shrink: 0;

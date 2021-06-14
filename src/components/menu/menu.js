@@ -29,7 +29,7 @@ const Menu = props => (
 const MenuContainer = styled.div`
   display:flex;
   justify-content: flex-end;
-  margin-top: ${rhythm(0.572)};
+  margin-top: ${rhythm(0.6)};
   margin-bottom: ${rhythm(-3 / 4)};
   @media (max-width: 800px) {
     display: none;
@@ -59,8 +59,8 @@ const Button = styled.button`
               'color: ' + props.theme.quaternaryColor + ';'
     }
   }};
-  font-size: ${props => props.props.fontSize || "15px"};
-  font-weight: ${props => props.props.fontWeight || "600"};
+  font-size: 15px;
+  font-weight: 600;
   font-family: Montserrat, sans-serif;
   border-radius: ${props => {
     if (props.first) return "10px 0 0 0"

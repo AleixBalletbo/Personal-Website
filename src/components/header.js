@@ -78,6 +78,9 @@ const UpperInnerContainer = styled.div`
   flex: 1;
   max-width: ${rhythm(30)};
   padding: ${rhythm(3 / 4)};
+  @media (max-width: 800px) {
+    padding: ${rhythm(1 / 2)};
+  }
   display: flex;
   flex-direction: ${props => props.type == "index" ? "column" : "row"};
   justify-content: space-between;

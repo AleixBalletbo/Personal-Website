@@ -5,7 +5,7 @@ import {Link} from "gatsby"
 
 const SectionButton = props => (
   <Link to={props.link} style={{boxShadow: '0 0 0'}}>
-    <SectionButtonDiv props={props}>{props.children}</SectionButtonDiv>
+    <SectionButtonDiv last={props.last}>{props.children}</SectionButtonDiv>
   </Link>
 )
 
@@ -18,7 +18,7 @@ const SectionButtonDiv = styled.div`
       border-radius: 1em;
       height: auto;
       width: 100%;
-      margin-bottom: ${rhythm(3 / 4)};
+      margin-bottom: ${props => props.last ? 0 : rhythm(1 / 2) };
       padding-top: 30%;
     }
 `
