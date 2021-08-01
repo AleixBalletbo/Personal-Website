@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import { rhythm } from "../utils/typography"
 
 export default function BlogEntry (props) {
   return(
@@ -24,11 +25,14 @@ export default function BlogEntry (props) {
 }
 
 const Container = styled.div`
-    background-color: ${props => props.theme.primaryColor};
-    border-radius: 10px;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+  background-color: ${props => props.theme.primaryColor};
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: ${rhythm(3 / 4)};
+  @media (max-width: 800px) {
+    margin-bottom: ${rhythm(1 / 2)};
+  }
 `
 const Image = styled.div`
   background-image: ${props => ('url('+props.cover+')')};
@@ -40,12 +44,15 @@ const Image = styled.div`
   border-radius: 10px 10px 0 0;
 `
 const Content = styled.div`
-  padding: 15px;
+  padding: ${rhythm(1 / 2)};
 `
 
 const Title = styled.h3`
   margin-top: 0px;
-  margin-bottom: 10px;
+  margin-bottom: ${rhythm(1 / 2)};
+  @media (max-width: 800px) {
+    margin-bottom: ${rhythm(1 / 4)};
+  }
   color: ${props => props.theme.accentColor};
 `
 
