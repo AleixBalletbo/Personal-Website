@@ -7,7 +7,7 @@ export default function BlogEntry (props) {
   return(
     <Link to={`/blog${props.slug}`}>
       <Container>
-        <Image cover={props.cover}/>
+        <LeftBar/>
         <Content>
           <Title>
             {props.title}
@@ -26,29 +26,27 @@ export default function BlogEntry (props) {
 
 const Container = styled.div`
   background-color: ${props => props.theme.primaryColor};
-  border-radius: 10px;
-  justify-content: center;
-  align-items: center;
+  border-radius: ${rhythm(1 / 4)};
+  display: flex;
+  flex-direction: row;
   margin-bottom: ${rhythm(3 / 4)};
   @media (max-width: 800px) {
     margin-bottom: ${rhythm(1 / 2)};
   }
 `
-const Image = styled.div`
-  background-image: ${props => ('url('+props.cover+')')};
-  background-size: cover;
-  background-position: center center;
-  height: auto;
-  width: 100%;
-  padding-bottom: 35%;
-  border-radius: 10px 10px 0 0;
+
+const LeftBar = styled.div`
+  width: ${rhythm(1 / 4)};
+  background-color: ${props => props.theme.accentColor};
+  border-radius: ${rhythm(1 / 4)} 0 0 ${rhythm(1 / 4)};
 `
+
 const Content = styled.div`
   padding: ${rhythm(1 / 2)};
 `
 
 const Title = styled.h3`
-  margin-top: 0px;
+  margin-top: 0;
   margin-bottom: ${rhythm(1 / 2)};
   @media (max-width: 800px) {
     margin-bottom: ${rhythm(1 / 4)};

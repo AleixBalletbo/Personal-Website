@@ -63,8 +63,8 @@ const Button = styled.button`
   font-weight: 600;
   font-family: Montserrat, sans-serif;
   border-radius: ${props => {
-    if (props.first) return "10px 0 0 0"
-    else if (props.last) return "0 10px 0 0"
+    if (props.first) return rhythm(1 / 4) + " 0 0 0"
+    else if (props.last) return "0 " + rhythm(1 / 4) + " 0 0"
     else return "0 0 0 0"
   }};
   &:hover {

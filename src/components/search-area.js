@@ -20,7 +20,7 @@ const SearchBar = styled.input`
   }
   padding: ${rhythm(1 / 4)};
   background-color: ${props => props.theme.primaryColor};
-  border-radius: 10px;
+  border-radius: ${rhythm(1 / 4)};
   border-width: 0;
   color: ${props => props.theme.quaternaryColor};
 `
