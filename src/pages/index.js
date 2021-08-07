@@ -25,7 +25,7 @@ class IndexPage extends React.Component {
         <ButtonsContainer>
           <SectionArea>
             <SectionButton link="/blog/"/>
-            <SectionButton/>
+            <SectionButton link="/projects/"/>
             <SectionButton last/>
           </SectionArea>
         </ButtonsContainer>

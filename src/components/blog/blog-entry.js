@@ -1,9 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { rhythm } from "../utils/typography"
+import { rhythm } from "../../utils/typography"
 
 export default function BlogEntry (props) {
+  console.log(props)
   return(
     <Link to={`/blog${props.slug}`}>
       <Container>
@@ -37,6 +38,7 @@ const Container = styled.div`
 
 const LeftBar = styled.div`
   width: ${rhythm(1 / 4)};
+  flex-shrink: 0;
   background-color: ${props => props.theme.accentColor};
   border-radius: ${rhythm(1 / 4)} 0 0 ${rhythm(1 / 4)};
 `
@@ -52,6 +54,7 @@ const Title = styled.h3`
     margin-bottom: ${rhythm(1 / 4)};
   }
   color: ${props => props.theme.accentColor};
+  font-family: Montserrat,sans-serif;
 `
 
 const Date = styled.small`

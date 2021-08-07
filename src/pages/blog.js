@@ -3,8 +3,8 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import SearchArea from "../components/search-area"
-import BlogEntry from "../components/blog-entry"
+import SearchArea from "../components/blog/search-area"
+import BlogEntry from "../components/blog/blog-entry"
 
 const Blog = props => {
 
@@ -40,7 +40,7 @@ const Blog = props => {
 
   return (
     <Layout location={props.location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title="Blog" />
       <SearchArea onChange={handleInputChange}/>
       <div>
         {posts.map(({ node }) => {
