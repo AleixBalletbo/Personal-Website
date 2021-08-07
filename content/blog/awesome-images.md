@@ -4,6 +4,9 @@ date: 2020-06-06T01:22:55.506Z
 cover: ../assets/great.jpg
 title: Awesome Images
 description: Fix for gatsby-plugin-mdx and gatsby-remark-images
+tags:
+  - gatsby
+  - images
 ---
 ![Great Gatsby](../assets/great2.jpg "Great Gatsby")
 
