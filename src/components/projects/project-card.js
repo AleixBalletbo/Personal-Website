@@ -83,6 +83,9 @@ const Title = styled.h3`
   margin-bottom: 0;
   color: ${props => props.theme.accentColor};
   font-family: Montserrat,sans-serif;
+  @media (max-width: 800px) {
+    font-size: 5vw;
+  }
 `
 
 const StatsContainer = styled.div`
@@ -91,6 +94,7 @@ const StatsContainer = styled.div`
   margin-left: auto;
   display: flex;
   flex-direction: row;
+  height: min-content;
 `
 
 const Stat = styled.div`
@@ -111,7 +115,7 @@ const StatNumber = styled.h5`
 
 const Icon = styled.img`
   margin: 0;
-  width: 100%
+  width: 100%;
 `
 
 const Description = styled.p`

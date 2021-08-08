@@ -21,6 +21,16 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
         />
         <Title>{post.frontmatter.title}</Title>
+        <TagContainer>
+          {post.frontmatter.tags.map(tag => {
+            console.log(tag)
+            return (
+              <Tag key={tag}>
+                #{tag}
+              </Tag>
+            )
+          })}
+        </TagContainer>
         <Content>
           <p
             style={{
@@ -76,6 +86,21 @@ const Title = styled.h1`
   color: ${props => props.theme.accentColor};
 `
 
+const TagContainer = styled.div`
+  display: flex;
+  flex: row;
+  margin: 0 ${rhythm(-1 / 8)} ${rhythm(1 / 4)} ${rhythm(-1 / 8)};
+`
+
+const Tag = styled.div`
+  color: ${props => props.theme.tertiaryColor};
+  border-radius: ${rhythm(1 / 4)};
+  background-color: ${props => props.theme.primaryColor};
+  padding: 0 ${rhythm(1 / 4)} 0 ${rhythm(1 / 4)};
+  margin: 0 ${rhythm(1 / 8)} 0 ${rhythm(1 / 8)};
+  height: min-content;
+`
+
 const Content = styled.div`
   color: ${props => props.theme.quaternaryColor};
 `
@@ -96,6 +121,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
     }
   }
