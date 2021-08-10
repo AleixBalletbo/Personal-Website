@@ -41,7 +41,7 @@ class BlogPostTemplate extends React.Component {
               marginBottom: rhythm(1)
             }}
           >
-            {post.frontmatter.date}
+            {post.frontmatter.date} - {post.fields.readingTime.text}
           </p>
           <MDXRenderer>{post.body}</MDXRenderer>
         </Content>
@@ -62,6 +62,9 @@ const Title = styled.h1`
   margin-top: 0px;
   margin-bottom: 10px;
   color: ${props => props.theme.accentColor};
+  @media (max-width: 800px) {
+    font-size: 7vw;
+  }
 `
 
 const TagContainer = styled.div`
@@ -108,6 +111,11 @@ export const pageQuery = graphql`
           id
           label
           color
+        }
+      }
+      fields {
+        readingTime {
+          text
         }
       }
     }

@@ -98,6 +98,7 @@ const Blog = props => {
               title={node.frontmatter.title || node.fields.slug}
               slug={node.fields.slug}
               date={node.frontmatter.date}
+              readingTime={node.fields.readingTime.text}
               description={node.frontmatter.description}
               tags={node.frontmatter.tags}
               category={node.frontmatter.category}
@@ -135,6 +136,9 @@ export const pageQuery = graphql`
         node {
           fields {
             slug
+            readingTime {
+              text
+            }
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")

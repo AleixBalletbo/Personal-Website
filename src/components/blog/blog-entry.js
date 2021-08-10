@@ -27,7 +27,7 @@ export default function BlogEntry (props) {
             </TagContainer>
           </TitleContainer>
           <Date>
-            {props.date}
+            {props.date} - {props.readingTime}
           </Date>
           <Description>
             {props.description}
