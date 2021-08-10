@@ -21,6 +21,7 @@ module.exports = {
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
+    `gatsby-transformer-json`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
@@ -37,6 +38,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/assets`,
         name: `assets`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/data`,
+        name: `data`,
       },
     },
     {
@@ -107,4 +115,7 @@ module.exports = {
       }
     }
   ],
+  mapping: {
+    "Mdx.frontmatter.category": `CategoriesJson`
+  }
 }

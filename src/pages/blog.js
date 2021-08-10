@@ -13,16 +13,39 @@ const Blog = props => {
   const { data } = props
   const siteTitle = data.site.siteMetadata.title
   const allPosts = data.allMdx.edges
+
+  // Prepare state objects
   
-  const [state, setState] = useState({
-    query: "",
-    filteredPosts: []
+  const [queryState, setQueryState] = useState({
+    query: ""
   })
+
+  const [categoryState, setCategoryState] = useState({
+    categoryId: "0"
+  })
+
+  const [postsState, setPostsState] = useState({
+    filteredPosts: allPosts
+  })
+
+  // Handle changes in input text
 
   const handleInputChange = event => {
     const query = event.target.value
 
-    const filteredPosts = allPosts.filter(post => {
+    const filteredPosts = filterPostsByQuery(query, filterPostsByCategory(categoryState.categoryId, allPosts))
+
+    setQueryState({
+      query
+    })
+
+    setPostsState({
+      filteredPosts
+    })
+  }
+
+  function filterPostsByQuery (query, posts) {
+    return posts.filter(post => {
       const {title, description, tags} = post.node.frontmatter
       return (
         description.toLowerCase().includes(query.toLowerCase()) ||
@@ -33,16 +56,31 @@ const Blog = props => {
           .includes(query.toLowerCase()))
       )
     })
-
-    setState({
-      query,
-      filteredPosts
-    })
   }
 
-  const {filteredPosts, query} = state
-  const hasSearchResults = filteredPosts && query !== ""
-  const posts = hasSearchResults ? filteredPosts : allPosts
+  // Handle changes in category selector
+
+  const handleCategoryChange = event => {
+    const categoryId = event.target.value
+
+    const categoryPosts = filterPostsByQuery(queryState.query, filterPostsByCategory(categoryId, allPosts))
+
+    setCategoryState({
+      categoryId
+    })
+
+    setPostsState({
+      filteredPosts: categoryPosts
+    })
+
+  }
+
+  function filterPostsByCategory (categoryId, posts) {
+    return posts.filter(post => {
+      const postCategoryId = post.node.frontmatter.category.id
+      return categoryId === "0" || categoryId === postCategoryId
+    })
+  }
 
   return (
     <Layout location={props.location} title={siteTitle}>
@@ -50,9 +88,9 @@ const Blog = props => {
       <Title>
         Blog
       </Title>
-      <SearchArea onChange={handleInputChange}/>
+      <SearchArea onTextChange={handleInputChange} onCategoryChange={handleCategoryChange}/>
       <div>
-        {posts.map(({ node }) => {
+        {postsState.filteredPosts.map(({ node }) => {
           return (
             <BlogEntry
               key={node.fields.slug}
@@ -62,6 +100,7 @@ const Blog = props => {
               date={node.frontmatter.date}
               description={node.frontmatter.description}
               tags={node.frontmatter.tags}
+              category={node.frontmatter.category}
               excerpt={node.excerpt}/>
           )
         })}
@@ -102,6 +141,11 @@ export const pageQuery = graphql`
             title
             description
             tags
+            category {
+              id
+              label
+              color
+            }
             cover {
               publicURL
             }

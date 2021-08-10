@@ -1,0 +1,27 @@
+[
+  {
+    "id": "1", 
+    "label": "How to", 
+    "color": "#FBE8A6" 
+  },
+  { 
+    "id": "2",
+    "label": "News", 
+    "color": "#E8A87C" 
+  },
+  { 
+    "id": "3",
+    "label": "Resources", 
+    "color": "#C38D9E" 
+  },
+  { 
+    "id": "4", 
+    "label": "Experience", 
+    "color": "#BC986A" 
+  },
+  { 
+    "id": "5",
+    "label": "Thoughts", 
+    "color": "#85DCB0"
+  }
+]

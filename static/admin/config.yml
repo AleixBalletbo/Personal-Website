@@ -13,8 +13,17 @@ collections:
     fields:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
-      - { name: cover, label: Cover Image, widget: image}
+      - { name: cover, label: Cover Image, widget: image }
       - { name: title, label: Title }
       - { name: description, label: Description }
-      - { name: tags, label: Tags, widget: list}
+      - { name: tags, label: Tags, widget: list }
+      - { name: category, label: Category, widget: select, 
+          options: [
+            { label: "How to", value: "1" },
+            { label: "News", value: "2" },
+            { label: "Resources", value: "3" },
+            { label: "Experience", value: "4" },
+            { label: "Thoughts", value: "5" }
+          ]
+        }
       - { name: body, label: Body, widget: markdown }

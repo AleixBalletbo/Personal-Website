@@ -2,11 +2,12 @@
 path: /awesome-images
 date: 2020-06-06T01:22:55.506Z
 cover: ../assets/great.jpg
-title: Awesome Images
+title: Designing data intensive applications using spark and scala
 description: Fix for gatsby-plugin-mdx and gatsby-remark-images
 tags:
   - gatsby
   - images
+category: "1"
 ---
 ![Great Gatsby](../assets/great2.jpg "Great Gatsby")
 

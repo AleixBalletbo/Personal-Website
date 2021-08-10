@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import styled from "styled-components"
 
@@ -12,7 +12,6 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx
     const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -22,8 +21,11 @@ class BlogPostTemplate extends React.Component {
         />
         <Title>{post.frontmatter.title}</Title>
         <TagContainer>
+          <Category color={post.frontmatter.category.color}>
+            {post.frontmatter.category.label}
+          </Category>
           {post.frontmatter.tags.map(tag => {
-            console.log(tag)
+            console.log(this.props)
             return (
               <Tag key={tag}>
                 #{tag}
@@ -49,30 +51,6 @@ class BlogPostTemplate extends React.Component {
           }}
         />
         <Bio />
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={`/blog${previous.fields.slug}`} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={`/blog${next.fields.slug}`} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
       </Layout>
     )
   }
@@ -100,6 +78,10 @@ const Tag = styled.div`
   margin: 0 ${rhythm(1 / 8)} 0 ${rhythm(1 / 8)};
   height: min-content;
 `
+const Category = styled(Tag)`
+  color: ${props => props.theme.primaryColor};
+  background-color: ${props => props.color};
+`
 
 const Content = styled.div`
   color: ${props => props.theme.quaternaryColor};
@@ -122,6 +104,11 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
         tags
+        category {
+          id
+          label
+          color
+        }
       }
     }
   }

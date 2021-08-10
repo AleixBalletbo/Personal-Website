@@ -7,15 +7,17 @@ export default function BlogEntry (props) {
   return(
     <Link to={`/blog${props.slug}`}>
       <Container>
-        <LeftBar/>
+        <LeftBar color={props.category.color}/>
         <Content>
           <TitleContainer>
             <Title>
               {props.title}
             </Title>
             <TagContainer>
+              <Category color={props.category.color}>
+                {props.category.label}
+              </Category>
               {props.tags.map(tag => {
-                console.log(tag)
                 return (
                   <Tag key={tag}>
                     #{tag}
@@ -50,7 +52,7 @@ const Container = styled.div`
 const LeftBar = styled.div`
   width: ${rhythm(1 / 4)};
   flex-shrink: 0;
-  background-color: ${props => props.theme.accentColor};
+  background-color: ${props => props.color};
   border-radius: ${rhythm(1 / 4)} 0 0 ${rhythm(1 / 4)};
 `
 
@@ -71,9 +73,6 @@ const Title = styled.h3`
   color: ${props => props.theme.accentColor};
   font-family: Montserrat,sans-serif;
   margin-right: auto;
-  @media (max-width: 800px) {
-    font-size: 5vw;
-  }
 `
 
 const TagContainer = styled.div`
@@ -83,9 +82,15 @@ const TagContainer = styled.div`
 `
 
 const Tag = styled.div`
+  color: ${props => props.theme.tertiaryColor};
+  margin: 0 ${rhythm(1 / 8)} 0 ${rhythm(1 / 8)};
+  height: min-content;
+`
+
+const Category = styled.div`
   color: ${props => props.theme.primaryColor};
   border-radius: ${rhythm(1 / 4)};
-  background-color: ${props => props.theme.secondaryColor};
+  background-color: ${props => props.color};
   padding: 0 ${rhythm(1 / 4)} 0 ${rhythm(1 / 4)};
   margin: 0 ${rhythm(1 / 8)} 0 ${rhythm(1 / 8)};
   height: min-content;
