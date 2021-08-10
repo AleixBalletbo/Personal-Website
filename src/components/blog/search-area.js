@@ -52,7 +52,7 @@ const SearchBar = styled.input`
   border-width: 0;
   color: ${props => props.theme.quaternaryColor};
   flex: 1;
-  min-width: intrinsic;
+  width: 100%;
 `
 
 const CategorySelector = styled.select`

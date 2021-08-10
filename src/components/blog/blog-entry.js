@@ -63,7 +63,7 @@ const Content = styled.div`
 
 const TitleContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
 `
 
@@ -73,6 +73,9 @@ const Title = styled.h3`
   color: ${props => props.theme.accentColor};
   font-family: Montserrat,sans-serif;
   margin-right: auto;
+  @media (max-width: 800px) {
+    font-size: 5.5vw;
+  }
 `
 
 const TagContainer = styled.div`

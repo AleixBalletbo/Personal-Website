@@ -84,7 +84,7 @@ const Title = styled.h3`
   color: ${props => props.theme.accentColor};
   font-family: Montserrat,sans-serif;
   @media (max-width: 800px) {
-    font-size: 5vw;
+    font-size: 5.5vw;
   }
 `
 

@@ -7,7 +7,7 @@ description: This is a test
 tags:
   - gatsby
   - test
-category: "4"
+category: "5"
 ---
 Hey, I just wrote this post from the Netlify CMS!!
 
