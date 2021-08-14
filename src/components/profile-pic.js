@@ -1,6 +1,8 @@
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import { StaticQuery, graphql, Link } from "gatsby"
+import { rhythm } from "../utils/typography"
+import Img from "gatsby-image"
+import styled from "styled-components"
 
 export default function ProfilePic () {
   return (
@@ -8,17 +10,11 @@ export default function ProfilePic () {
       query={profilePicQuery}
       render={data => {
         return (
-          <Image
+          <Pic
             fixed={data.avatar.childImageSharp.fixed}
             alt={data.site.siteMetadata.author}
-            style={{
-              marginRight: 10+'px',
-              marginBottom: 0,
-              minWidth: 100,
-              borderRadius: `100%`,
-            }}
             imgStyle={{
-              borderRadius: `50%`,
+              marginBottom: 0
             }}
           />
         )
@@ -27,11 +23,15 @@ export default function ProfilePic () {
   )
 }
 
+const Pic = styled(Img)`
+  border-radius: 50%;
+`
+
 const profilePicQuery = graphql`
   query profilePicQuery {
     avatar: file(absolutePath: { regex: "/profile.jpg/" }) {
       childImageSharp {
-        fixed(width: 100, height: 100) {
+        fixed(width: 50, height: 50) {
           ...GatsbyImageSharpFixed
         }
       }

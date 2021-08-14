@@ -2,83 +2,45 @@ import React from "react"
 import { Link, StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
-import { rhythm, scale } from "../../utils/typography"
-import Burger from "./burger"
-
 const Menu = props => (
-  <div>
-    <MenuContainer>
-      <Link to="/blog/" style={{boxShadow: 'none'}}>
-        <Button to="/blog/" first props={props}>Blog</Button>
-      </Link>
-      <Link to="/projects/" style={{boxShadow: 'none'}}>
-        <Button to="/projects/" props={props}>Projects</Button>
-      </Link>
-      <Link to="/about/" style={{boxShadow: 'none'}}>
-        <Button to="/about/" last props={props}>About me</Button>
-      </Link>
-    </MenuContainer>
-    <MobileMenuContainer>
-      <Burger open={props.open} setOpen={props.setOpen}/>
-    </MobileMenuContainer>
-  </div>
+  <MenuContainer>
+    <Link to="/blog/" style={{boxShadow: 'none'}}>
+      <Button to="/blog/" first props={props}>Blog</Button>
+    </Link>
+    <Link to="/projects/" style={{boxShadow: 'none'}}>
+      <Button to="/projects/" props={props}>Projects</Button>
+    </Link>
+    <Link to="/about/" style={{boxShadow: 'none'}}>
+      <Button to="/about/" last props={props}>About me</Button>
+    </Link>
+  </MenuContainer>
 )
-
-// Desktop
 
 const MenuContainer = styled.div`
   display:flex;
+  flex-direction: row;
   justify-content: flex-end;
-  margin-top: ${rhythm(0.6)};
-  margin-bottom: ${rhythm(-3 / 4)};
-  @media (max-width: 800px) {
-    display: none;
-  }
+  align-items: center;
+  margin-left: auto;
 `
 
 const Button = styled.button`
-  flex: 1 0 auto;
-  height: auto;
-  display: block;
   border: none;
   text-align: center;
   text-decoration: none;
-  box-sizing: border-box;
-  padding: 0.75em 2em;
+  padding: 0em 0.5em;
   cursor: pointer;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  ${props => {
-    const url = typeof window !== 'undefined' ? window.location.href : '';
-    if (url.includes(props.to)) {
-      return 'background: ' + props.theme.backgroundColor + ';' +
-              'color: ' + props.theme.accentColor + ';'
-    }
-    else {
-      return 'background: ' + props.theme.primaryColor + ';' +
-              'color: ' + props.theme.quaternaryColor + ';'
-    }
-  }};
-  font-size: 15px;
-  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: large;
+  font-weight: 800;
   font-family: Montserrat, sans-serif;
-  border-radius: ${props => {
-    if (props.first) return rhythm(1 / 4) + " 0 0 0"
-    else if (props.last) return "0 " + rhythm(1 / 4) + " 0 0"
-    else return "0 0 0 0"
-  }};
-  &:hover {
-    background: ${props => props.theme.backgroundColor};
+  background-color: transparent;
+  color: ${props => props.theme.backgroundColor};
+  height: fit-content;
+  @media (max-width: 800px) {
+    font-size: medium;
   }
 `
-
-// Mobile
-
-const MobileMenuContainer = styled.div`
-  @media (min-width: 800px) {
-    display: none;
-  }
-`
-
 
 export default Menu

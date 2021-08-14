@@ -1,13 +1,12 @@
-import React, {useState} from "react"
+import React from "react"
 import { Link, StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
 import { rhythm } from "../utils/typography"
 import Menu from "./menu/menu"
-import MobileMenu from "./menu/mobile-menu"
+import ProfilePic from "./profile-pic.js"
 
 const Header = props => {
-  const [open, setOpen] = useState(false);
   return (
     <StaticQuery
       query={headerQuery}
@@ -15,7 +14,10 @@ const Header = props => {
         const { title, subtitle } = data.site.siteMetadata
         return (
           <ExternalContainer>
-            <UpperInnerContainer type={props.type}>
+            <InnerContainer type={props.type}>
+              <ProfileLink to="/">
+                <ProfilePic/>
+              </ProfileLink>
               <Title>
                 <Link
                   style={{
@@ -28,16 +30,8 @@ const Header = props => {
                   {title}
                 </Link>
               </Title>
-              {props.type == "index" &&
-                <Subtitle>
-                    {subtitle}
-                </Subtitle>
-              }
-              {props.type != "index" &&
-                <Menu open={open} setOpen={setOpen}/>
-              }
-            </UpperInnerContainer>
-            <MobileMenu open={open}/>
+              <Menu/>
+            </InnerContainer>
           </ExternalContainer>
         )
       }}
@@ -71,36 +65,36 @@ const ExternalContainer = styled.header`
   flex-wrap:wrap;
 `
 
-const UpperInnerContainer = styled.div`
+const InnerContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   flex: 1;
   max-width: ${rhythm(30)};
-  padding: ${rhythm(3 / 4)};
+  padding: ${rhythm(1 / 2)};
   @media (max-width: 800px) {
-    padding: ${rhythm(1 / 2)};
+    padding: ${rhythm(1 / 4)};
   }
   display: flex;
-  flex-direction: ${props => props.type == "index" ? "column" : "row"};
+  flex-direction: row;
   justify-content: space-between;
 `
 
-
 const Title = styled.h1`
   @media (max-width: 800px) {
-    font-size: 7vw;
+    display: none;
   }
   margin-top: 0;
   margin-bottom: 0;
   color: ${props => props.theme.backgroundColor};
+  align-self: center;
 `
 
-const Subtitle = styled.h3`
-  @media (max-width: 800px) {
-    font-size: 4vw;
-  }
-  margin-top: ${rhythm(1 / 2)};
-  margin-bottom: 0;
-  color: ${props => props.theme.backgroundColor};
+const ProfileLink = styled(Link)`
+  margin-right: ${rhythm(1 / 2)};
+  align-self: center;
+  box-shadow: none;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
 `
