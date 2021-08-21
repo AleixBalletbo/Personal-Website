@@ -5,8 +5,8 @@ import {rhythm, scale} from "../utils/typography"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import SectionArea from "../components/section-area"
-import SectionButton from "../components/section-button"
+import BlogSummary from "../components/blog/blog-summary"
+import ProjectsSummary from "../components/projects/projects-summary"
 
 class IndexPage extends React.Component {
   render() {
@@ -18,17 +18,10 @@ class IndexPage extends React.Component {
           title="Home"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <TextContainer>
-          <Greetings>Hi there! 😁 </Greetings>
-          <p>Welcome to my personal website.</p>
-        </TextContainer>
-        <ButtonsContainer>
-          <SectionArea>
-            <SectionButton link="/blog/"/>
-            <SectionButton link="/projects/"/>
-            <SectionButton last/>
-          </SectionArea>
-        </ButtonsContainer>
+        <SummaryContainer>
+          <BlogSummary/>
+          <ProjectsSummary/>
+        </SummaryContainer>
       </Layout>
     )
   }
@@ -41,38 +34,16 @@ export const pageQuery = graphql`
         title
       }
     }
-    avatar: file(absolutePath: {regex: "/profile.jpg/"}) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
   }
 `
 
-const TextContainer = styled.div`
+const SummaryContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 ${rhythm(-3 / 8)} 0 ${rhythm(-3 / 8)};
   @media (max-width: 800px) {
-    position: relative;
+    margin: 0 ${rhythm(-1 / 4)} 0 ${rhythm(-1 / 4)};
   }
-  @media (min-height: 736px) and (min-width: 801px) {
-    position: absolute;
-  }
-  color: ${props => props.theme.quaternaryColor};
-`
-
-const Greetings = styled.h3`
-  color: ${props => props.theme.tertiaryColor};
-  margin-top: ${rhythm(3/4)};
-`
-
-const ButtonsContainer = styled.div`
-  @media (max-width: 800px) {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  margin-top: auto;
-  margin-bottom: auto;
 `
 
 export default IndexPage

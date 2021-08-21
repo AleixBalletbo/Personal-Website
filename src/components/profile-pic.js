@@ -1,6 +1,5 @@
 import React from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
-import { rhythm } from "../utils/typography"
 import Img from "gatsby-image"
 import styled from "styled-components"
 

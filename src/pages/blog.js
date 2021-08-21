@@ -94,7 +94,6 @@ const Blog = props => {
           return (
             <BlogEntry
               key={node.fields.slug}
-              cover={node.frontmatter.cover.publicURL}
               title={node.frontmatter.title || node.fields.slug}
               slug={node.fields.slug}
               date={node.frontmatter.date}
@@ -149,9 +148,6 @@ export const pageQuery = graphql`
               id
               label
               color
-            }
-            cover {
-              publicURL
             }
           }
         }
