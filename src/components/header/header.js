@@ -2,9 +2,9 @@ import React from "react"
 import { Link, StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
-import { rhythm } from "../utils/typography"
-import Menu from "./menu/menu"
-import ProfilePic from "./profile-pic.js"
+import { rhythm } from "../../utils/typography"
+import Menu from "./menu"
+import ProfilePic from "../pics/profile-pic.js"
 
 const Header = props => {
   return (
@@ -18,18 +18,20 @@ const Header = props => {
               <ProfileLink to="/">
                 <ProfilePic/>
               </ProfileLink>
-              <Title>
-                <Link
-                  style={{
-                    boxShadow: `none`,
-                    textDecoration: `none`,
-                    color: `inherit`,
-                  }}
-                  to={`/`}
-                >
-                  {title}
-                </Link>
-              </Title>
+              {props.type != "index" &&
+                <Title>
+                  <Link
+                    style={{
+                      boxShadow: `none`,
+                      textDecoration: `none`,
+                      color: `inherit`,
+                    }}
+                    to={`/`}
+                  >
+                    {title}
+                  </Link>
+                </Title>
+              }
               <Menu/>
             </InnerContainer>
           </ExternalContainer>

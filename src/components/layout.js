@@ -4,7 +4,7 @@ import styled, { ThemeProvider } from "styled-components"
 import { MDXProvider } from "@mdx-js/react"
 
 import { rhythm, scale } from "../utils/typography"
-import Header from "./header.js"
+import Header from "./header/header.js"
 
 class Layout extends React.Component {
   render() {

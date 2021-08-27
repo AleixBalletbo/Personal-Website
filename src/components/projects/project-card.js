@@ -2,6 +2,9 @@ import React from "react"
 import styled from "styled-components"
 import { rhythm } from "../../utils/typography"
 
+import StarImage from "../../../static/svg/star.svg"
+import ForkImage from "../../../static/svg/fork.svg"
+
 export default function ProjectCard (props) {
   return(
       <Container href={props.url} target="_blank">
@@ -14,13 +17,13 @@ export default function ProjectCard (props) {
                 <StatNumber>
                   {props.forks}
                 </StatNumber>
-                <Icon src="/git-fork.svg"/>
+                <ForkIcon/>
               </Stat>
               <Stat>
                 <StatNumber>
                 {props.stars}
                 </StatNumber>
-                <Icon src="/star.svg"/>
+                <StarIcon/>
               </Stat>
             </StatsContainer>
           </TitleContainer>
@@ -113,9 +116,16 @@ const StatNumber = styled.h5`
   font-size: ${rhythm(3/4)};
 `
 
-const Icon = styled.img`
+const StarIcon = styled(StarImage)`
   margin: 0;
   width: 100%;
+  fill: ${props => props.theme.accentColor};
+`
+
+const ForkIcon = styled(ForkImage)`
+  margin: 0;
+  width: 100%;
+  fill: ${props => props.theme.accentColor};
 `
 
 const Description = styled.p`

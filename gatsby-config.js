@@ -14,7 +14,8 @@ module.exports = {
     social: {
       twitter: `AleixBalletbo`,
       devto: `aleixballetbo`,
-      github: `AleixBalletbo`
+      github: `AleixBalletbo`,
+      linkedin: `aleixballetbo`
     },
   },
   plugins: [
@@ -112,6 +113,14 @@ module.exports = {
         graphQLQuery: githubApiQuery,
         variables: {
           github_login: process.env.GITHUB_LOGIN
+        }
+      }
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /svg/
         }
       }
     }
