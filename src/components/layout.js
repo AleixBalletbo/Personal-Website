@@ -8,9 +8,7 @@ import Header from "./header/header.js"
 
 class Layout extends React.Component {
   render() {
-    const { location, title, subtitle, header, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    const blogPath = `${__PATH_PREFIX__}/blog/`
+    const { header, children } = this.props
     return (
       <ThemeProvider theme={theme}>
         <Wrapper>

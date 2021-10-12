@@ -1,0 +1,60 @@
+[
+  {
+    "company": "Plain Concepts",
+    "icon": {
+      "src": "../images/plain.jpeg"
+    },
+    "startDate": "Janyary 2020",
+    "endDate": "Now",
+    "position": "Data Engineer",
+    "description": "Development of Big Data products and solutions for an international retail client, providing the data foundations for analytical tools of a loyalty program with 40+ million users.",
+    "achievements": [
+      "Developed and maintained demanding ETL processes in Azure and Databricks with Spark in Scala, orchestrated with Airflow.",
+      "Integrated new streaming architecture and processes with Spark Structured Streaming to migrate legacy systems.",
+      "Provided internal trainings in data technologies for an environment of continuous learning and improvement."
+    ]
+  },
+  {
+    "company": "SDG Group",
+    "icon": {
+      "src": "../images/sdg.jpeg"
+    },
+    "startDate": "September 2019",
+    "endDate": "December 2020",
+    "position": "Data Analytics Consultant",
+    "description": "Definition and development of Big Data and Business Intelligence projects, ensuring a fluent comunication with clients to identify their needs and goals.",
+    "achievements": [
+      "Revised requirements and developed an IoT project with geospatial data with Spark and Scala in a Cloudera environment.",
+      "Maintained ETL processes for a data warehouse supporting 80+ source systems and applications.",
+      "Started the internal architecture area to provide support in Big Data technologies and created a centralized knowledge repository."
+    ]
+  },
+  {
+    "company": "UPC",
+    "icon": {
+      "src": "../images/upc.jpg"
+    },
+    "startDate": "September 2018",
+    "endDate": "July 2019",
+    "position": "Fullstack Web Developer",
+    "description": "Member of the Q-Rapids european research project (Quality-Aware Rapid Software Development), focused on the development of a strategic dashboard to obtain quality requirements from data models.",
+    "achievements": [
+      "Developed key functionalities of the strategic dashboard using the Spring Boot framework, including What-If analysis and automated alerts.",
+      "Re-engineered the architecture of the web app, achiving a loosely coupled design and adding unit and integration tests, as well as setting up a CI/CD pipeline."
+    ]
+  },
+  {
+    "company": "UPC",
+    "icon": {
+      "src": "../images/upc.jpg"
+    },
+    "startDate": "September 2017",
+    "endDate": "July 2018",
+    "position": "Software Engineering Intern",
+    "description": "Restructuring of the PES subject (Software Engineering Project) from the Informatics Engineering Degree of the Universitat Politècnica de Catalunya, through the design and implementation of an agile framework for the students.",
+    "achievements": [
+      "Moved from a waterfall structure to an agile methodology for the definition and implementation of a software project, showing the benefits of small feedback loops with SCRUM, testing and CI/CD.",
+      "Developed an example Android application for the students to use as a base for their projects with the MVP pattern and Dagger, and a backend with Node.js and MongoDB."
+    ]
+  }
+]

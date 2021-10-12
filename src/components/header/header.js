@@ -11,7 +11,7 @@ const Header = props => {
     <StaticQuery
       query={headerQuery}
       render={data => {
-        const { title, subtitle } = data.site.siteMetadata
+        const { title } = data.site.siteMetadata
         return (
           <ExternalContainer>
             <InnerContainer type={props.type}>

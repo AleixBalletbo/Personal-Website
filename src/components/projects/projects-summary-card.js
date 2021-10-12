@@ -102,13 +102,11 @@ const StatNumber = styled.h5`
 
 const StarIcon = styled(StarImage)`
   margin: 0;
-  width: 100%;
   fill: ${props => props.theme.accentColor};
 `
 
 const ForkIcon = styled(ForkImage)`
   margin: 0;
-  width: 100%;
   fill: ${props => props.theme.accentColor};
 `
 

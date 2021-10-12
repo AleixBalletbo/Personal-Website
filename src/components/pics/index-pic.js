@@ -31,7 +31,7 @@ const indexPicQuery = graphql`
   query indexPicQuery {
     avatar: file(absolutePath: { regex: "/profile.jpg/" }) {
       childImageSharp {
-        fixed(width: 200, height: 200) {
+        fixed(width: 200, height: 200, quality: 100) {
           ...GatsbyImageSharpFixed
         }
       }

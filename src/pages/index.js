@@ -55,10 +55,7 @@ class IndexPage extends React.Component {
         </Abstract>
         <Abstract>
           I'm passionate about software engineering, and I'm currently specialized in Big Data technologies.
-          Here you will find a personal blog with my thoughts and learnings, as well a collection of my personal projects.
-        </Abstract>
-        <Abstract>
-          Thank you for visiting and sharing!
+          Here you will find a personal blog with my thoughts and learnings, as well as a collection of my personal projects and my professional path.
         </Abstract>
 
         <SummaryContainer>
