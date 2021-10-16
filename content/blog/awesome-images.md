@@ -9,8 +9,6 @@ tags:
   - images
 category: "1"
 ---
-![Great Gatsby](../assets/great2.jpg "Great Gatsby")
-
 ## Netlify CMS Media Configuration
 
 First, in your `static/admin/config.yml`, make sure you have the following:

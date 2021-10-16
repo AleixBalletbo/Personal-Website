@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import Img from "gatsby-image"
 import styled from "styled-components"
 
 import Layout from "../components/layout"
@@ -18,37 +19,37 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <Title>{post.frontmatter.title}</Title>
-        <TagContainer>
-          <Category color={post.frontmatter.category.color}>
-            {post.frontmatter.category.label}
-          </Category>
-          {post.frontmatter.tags.map(tag => {
-            console.log(this.props)
-            return (
-              <Tag key={tag}>
-                #{tag}
-              </Tag>
-            )
-          })}
-        </TagContainer>
-        <Content>
-          <p
-            style={{
-              ...scale(-1 / 5),
-              display: `block`,
-              marginBottom: rhythm(1)
-            }}
-          >
-            {post.frontmatter.date} - {post.fields.readingTime.text}
-          </p>
-          <MDXRenderer>{post.body}</MDXRenderer>
-        </Content>
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
+        <BlogContainer>
+          <Cover fluid={post.frontmatter.cover.childImageSharp.fluid}/>
+          <Body>
+            <Title>{post.frontmatter.title}</Title>
+            <TagContainer>
+              <Category color={post.frontmatter.category.color}>
+                {post.frontmatter.category.label}
+              </Category>
+              {post.frontmatter.tags.map(tag => {
+                console.log(this.props)
+                return (
+                  <Tag key={tag}>
+                    #{tag}
+                  </Tag>
+                )
+              })}
+            </TagContainer>
+            <Content>
+              <p
+                style={{
+                  ...scale(-1 / 5),
+                  display: `block`,
+                  marginBottom: rhythm(1 / 4)
+                }}
+              >
+                {post.frontmatter.date} - {post.fields.readingTime.text}
+              </p>
+              <MDXRenderer>{post.body}</MDXRenderer>
+            </Content>
+          </Body>
+        </BlogContainer>
       </Layout>
     )
   }
@@ -56,9 +57,31 @@ class BlogPostTemplate extends React.Component {
 
 export default BlogPostTemplate
 
+const BlogContainer = styled.div`
+  background-color: ${props => props.theme.primaryColor};
+  border-radius: ${rhythm(1 / 4)};
+  @media (max-width: 800px) {
+    border-radius: 0;
+    margin: ${rhythm(-1 / 2)};
+  }
+`
+
+const Cover = styled(Img)`
+  width: 100%;
+  aspect-ratio: 5/2;
+  border-radius: ${rhythm(1 / 4)} ${rhythm(1 / 4)} 0 0;
+  @media (max-width: 800px) {
+    border-radius: 0;
+  }
+`
+
+const Body = styled.div`
+  padding: ${rhythm(1 / 2)};
+`
+
 const Title = styled.h1`
-  margin-top: 0px;
-  margin-bottom: 10px;
+  margin-top: 0;
+  margin-bottom: ${rhythm(1 / 2)};
   color: ${props => props.theme.accentColor};
   @media (max-width: 800px) {
     font-size: 7vw;
@@ -109,6 +132,13 @@ export const pageQuery = graphql`
           id
           label
           color
+        }
+        cover {
+          childImageSharp {
+            fluid (maxWidth: 1000, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
       fields {

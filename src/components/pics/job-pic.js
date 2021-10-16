@@ -7,9 +7,6 @@ export default function JobPic (props) {
     <Pic
       fixed={props.image}
       alt={props.company}
-      imgStyle={{
-        marginBottom: 0
-      }}
     />
   )
 }
