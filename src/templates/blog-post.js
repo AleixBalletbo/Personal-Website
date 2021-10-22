@@ -6,7 +6,7 @@ import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import { rhythm } from "../utils/typography"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -36,16 +36,10 @@ class BlogPostTemplate extends React.Component {
                 )
               })}
             </TagContainer>
-            <Content>
-              <p
-                style={{
-                  ...scale(-1 / 5),
-                  display: `block`,
-                  marginBottom: rhythm(1 / 4)
-                }}
-              >
+            <DateTime>
                 {post.frontmatter.date} - {post.fields.readingTime.text}
-              </p>
+              </DateTime>
+            <Content>
               <MDXRenderer>{post.body}</MDXRenderer>
             </Content>
           </Body>
@@ -61,6 +55,7 @@ const BlogContainer = styled.div`
   background-color: ${props => props.theme.primaryColor};
   border-radius: ${rhythm(1 / 4)};
   @media (max-width: 800px) {
+    background-color: ${props => props.theme.backgroundColor};
     border-radius: 0;
     margin: ${rhythm(-1 / 2)};
   }
@@ -97,14 +92,23 @@ const TagContainer = styled.div`
 const Tag = styled.div`
   color: ${props => props.theme.tertiaryColor};
   border-radius: ${rhythm(1 / 4)};
-  background-color: ${props => props.theme.primaryColor};
+  background-color: ${props => props.theme.secondaryColor};
   padding: 0 ${rhythm(1 / 4)} 0 ${rhythm(1 / 4)};
   margin: 0 ${rhythm(1 / 8)} 0 ${rhythm(1 / 8)};
   height: min-content;
+  @media (max-width: 800px) {
+    fbackground-color: ${props => props.theme.primaryColor};
+  }
 `
 const Category = styled(Tag)`
-  color: ${props => props.theme.primaryColor};
+  color: ${props => props.theme.tertiaryColor};
   background-color: ${props => props.color};
+`
+
+const DateTime = styled.p`
+  margin-bottom: ${rhythm(1 / 4)};
+  font-size: small;
+  color: ${props => props.theme.tertiaryColor};
 `
 
 const Content = styled.div`

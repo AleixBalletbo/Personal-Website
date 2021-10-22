@@ -69,7 +69,7 @@ const TitleContainer = styled.div`
 const Title = styled.h3`
   margin-top: 0;
   margin-bottom: 0;
-  color: ${props => props.theme.accentColor};
+  color: ${props => props.theme.tertiaryColor};
   font-family: Montserrat,sans-serif;
   font-size: larger;
   align-self: center;

@@ -50,7 +50,7 @@ const SearchBar = styled.input`
   background-color: ${props => props.theme.primaryColor};
   border-radius: ${rhythm(1 / 4)};
   border-width: 0;
-  color: ${props => props.theme.quaternaryColor};
+  color: ${props => props.theme.tertiaryColor};
   flex: 1;
   width: 100%;
 `
@@ -59,7 +59,7 @@ const CategorySelector = styled.select`
   border-radius: ${rhythm(1 / 4)};
   border-width: 0;
   background-color: ${props => props.theme.primaryColor};
-  color: ${props => props.theme.tertiaryColor};
+  color: ${props => props.theme.accentColor};
   padding: ${rhythm(1 / 4)} ${rhythm(1)} ${rhythm(1 / 4)} ${rhythm(1 / 4)};
   margin-left: ${rhythm(3 / 4)};
   @media (max-width: 800px) {
@@ -67,7 +67,7 @@ const CategorySelector = styled.select`
   }
   width: min-content;
   appearance: none;
-  background-image: url("data:image/svg+xml,<svg fill='${props => props.theme.tertiaryColor.replace("#", "%23")}' width='16' height='16' xmlns='http://www.w3.org/2000/svg'><path d='m0,4l8,8l8,-8l-16,0z'/><path fill='none' d='m0,0l16,0l0,16l-16,0l0,-16z'/></svg>");
+  background-image: url("data:image/svg+xml,<svg fill='${props => props.theme.accentColor.replace("#", "%23")}' width='16' height='16' xmlns='http://www.w3.org/2000/svg'><path d='m0,4l8,8l8,-8l-16,0z'/><path fill='none' d='m0,0l16,0l0,16l-16,0l0,-16z'/></svg>");
   background-repeat: no-repeat;
   background-position-x: 90%;
   background-position-y: 50%;

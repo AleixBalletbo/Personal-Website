@@ -69,15 +69,15 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: ${rhythm(1 / 2)};
+  padding: ${rhythm(1 / 3)};
 `
 
 const TitleContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: ${rhythm(1 / 2)};
+  margin-bottom: ${rhythm(1 / 4)};
   @media (max-width: 800px) {
-    margin-bottom: ${rhythm(1 / 4)};
+    margin-bottom: ${rhythm(1 / 6)};
   }
 `
 
@@ -106,7 +106,7 @@ const Stat = styled.div`
   margin-left: ${rhythm(1 / 4)};
   display: flex;
   flex-direction: row;
-  color: ${props => props.theme.quaternaryColor};
+  color: ${props => props.theme.tertiaryColor};
 `
 
 const StatNumber = styled.h5`
@@ -128,9 +128,9 @@ const ForkIcon = styled(ForkImage)`
 
 const Description = styled.p`
   color: ${props => props.theme.quaternaryColor};
-  margin-bottom: ${rhythm(1 / 2)};
+  margin-bottom: ${rhythm(1 / 4)};
   @media (max-width: 800px) {
-    margin-bottom: ${rhythm(1 / 4)};
+    margin-bottom: ${rhythm(1 / 6)};
   }
 `
 
@@ -141,7 +141,7 @@ const BottomContainer = styled.div`
 `
 
 const LanguageTag = styled.div`
-  color: ${props => props.theme.primaryColor};
+  color: ${props => props.theme.tertiaryColor};
   border-radius: ${rhythm(1 / 4)};
   background-color: ${props => props.color};
   padding: 0 ${rhythm(1 / 4)} 0 ${rhythm(1 / 4)};

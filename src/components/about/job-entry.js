@@ -52,7 +52,7 @@ const PicContainer = styled.div`
 `
 
 const VerticalLine = styled.div`
-  border-left: 6px solid ${props => props.theme.tertiaryColor};
+  border-left: 6px solid ${props => props.theme.accentColor};
   flex: 1;
   align-self: center;
 `
@@ -76,7 +76,7 @@ const HeadlineContainer = styled.div`
     margin-bottom: ${rhythm(1 / 4)};
   }
   flex: 1;
-  align-items: center;
+  align-items: top;
   justify-content: space-between;
   color: ${props => props.theme.tertiaryColor};
 `
@@ -84,6 +84,7 @@ const HeadlineContainer = styled.div`
 const Position = styled.h3`
   margin-top: 0;
   margin-bottom: 0;
+  margin-right: ${rhythm(1 / 4)};
   font-size: 1.1em;
 `
 
@@ -91,6 +92,7 @@ const Duration = styled.h6`
   margin-top: 0;
   margin-bottom: 0;
   font-size: 0.9em;
+  text-align: right;
 `
 
 const Description = styled.p`

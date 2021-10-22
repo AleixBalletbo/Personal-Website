@@ -16,8 +16,7 @@ class Layout extends React.Component {
           <Content>
             <MDXProvider
               components={{
-                pre: props => <pre {...props} style = {{backgroundColor: theme.primaryColor}}/>,
-                a: props => <a {...props} style = {{color: theme.accentColor}}/>,
+                a: props => <a {...props} style = {{color: theme.accentColor, boxShadow: `none`}}/>,
                 h2: props => <h2 {...props} style = {{color: theme.tertiaryColor}}/>
               }}
             >
@@ -28,7 +27,7 @@ class Layout extends React.Component {
             © Aleix Balletbó {new Date().getFullYear()}
             <br/>
             Built with {' '}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
+            <a style = {{color: theme.accentColor, boxShadow: `none`}} href="https://www.gatsbyjs.org">Gatsby</a>
           </Footer>
         </Wrapper>
       </ThemeProvider>
@@ -68,12 +67,12 @@ const Footer = styled.footer`
 `
 
 const theme = {
-  backgroundColor: "#272F3F",
-  primaryColor: "#171C26",
-  secondaryColor: "#3D5A80",
-  tertiaryColor: "#98C1D9",
-  quaternaryColor: "#E0FBFC",
-  accentColor: "#EE6C4D",
+  backgroundColor: "#FAEDD4",
+  primaryColor: "#FAE4BB",
+  secondaryColor: "#FADBA2",
+  tertiaryColor: "#4A4A4A",
+  quaternaryColor: "#696969",
+  accentColor: "#701B1B",
 }
 
 export default Layout

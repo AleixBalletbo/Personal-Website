@@ -64,7 +64,7 @@ const TitleContainer = styled.div`
 const Title = styled.h3`
   margin-top: 0;
   margin-bottom: ${rhythm(1 / 4)};
-  color: ${props => props.theme.accentColor};
+  color: ${props => props.theme.tertiaryColor};
   font-family: Montserrat,sans-serif;
   font-size: larger;
 `
@@ -83,7 +83,7 @@ const Tag = styled.div`
 `
 
 const Category = styled.div`
-  color: ${props => props.theme.primaryColor};
+  color: ${props => props.theme.tertiaryColor};
   border-radius: ${rhythm(1 / 4)};
   background-color: ${props => props.color};
   padding: 0 ${rhythm(1 / 4)} 0 ${rhythm(1 / 4)};

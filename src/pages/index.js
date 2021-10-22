@@ -149,7 +149,9 @@ const LinkedinLogo = styled(LinkedinLogoImage)`
 
 const IndexPicContainer = styled.div`
   align-self: center;
-  margin-top: ${rhythm(1 / 4)};
+  @media (max-width: 800px) {
+    margin-top: ${rhythm(1 / 4)};
+  }
 `
 
 const Abstract = styled.p`

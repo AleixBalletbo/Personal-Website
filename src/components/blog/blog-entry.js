@@ -57,7 +57,7 @@ const LeftBar = styled.div`
 `
 
 const Content = styled.div`
-  padding: ${rhythm(1 / 2)};
+  padding: ${rhythm(1 / 3)};
   flex: 1;
 `
 
@@ -75,13 +75,14 @@ const Title = styled.h3`
   margin-right: auto;
   @media (max-width: 800px) {
     font-size: 5.5vw;
+    margin-bottom: ${rhythm(1 / 4)};
   }
 `
 
 const TagContainer = styled.div`
   display: flex;
   flex: row;
-  margin: 0 ${rhythm(-1 / 8)} ${rhythm(1 / 4)} ${rhythm(-1 / 8)};
+  margin: 0 ${rhythm(-1 / 8)} ${rhythm(1 / 8)} ${rhythm(-1 / 8)};
 `
 
 const Tag = styled.div`
@@ -91,7 +92,7 @@ const Tag = styled.div`
 `
 
 const Category = styled.div`
-  color: ${props => props.theme.primaryColor};
+  color: ${props => props.theme.tertiaryColor};
   border-radius: ${rhythm(1 / 4)};
   background-color: ${props => props.color};
   padding: 0 ${rhythm(1 / 4)} 0 ${rhythm(1 / 4)};

@@ -31,7 +31,7 @@ const AboutMe = props => {
       </Description>
       <Description>
         I believe that a strong knowledge of software architecture and best practices, combined with agile methodologies and a product mindset are the key principles 
-        to achieve the best possible outcome and deliver value that makes a diference and matters. 
+        to achieve the best possible outcome and deliver value that makes a diference. 
       </Description>
       <Section>
         Work Experience

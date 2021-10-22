@@ -36,7 +36,7 @@ const Button = styled.button`
   font-weight: 800;
   font-family: Montserrat, sans-serif;
   background-color: transparent;
-  color: ${props => props.theme.backgroundColor};
+  color: ${props => props.theme.primaryColor};
   height: fit-content;
   @media (max-width: 800px) {
     font-size: medium;
