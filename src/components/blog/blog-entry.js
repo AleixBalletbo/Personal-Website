@@ -44,8 +44,12 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   margin-bottom: ${rhythm(3 / 4)};
+  box-shadow: 0 2px 4px ${props => props.theme.shadowColor};
   @media (max-width: 800px) {
     margin-bottom: ${rhythm(1 / 2)};
+  }
+  &:hover {
+    box-shadow: 0 0 0;
   }
 `
 

@@ -57,22 +57,23 @@ const Content = styled.div`
 
 const Footer = styled.footer`
   text-align: center;
-  padding: ${rhythm(3 / 4)};
+  padding: ${rhythm(1 / 2)};
   @media (max-width: 800px) {
     padding: ${rhythm(1 / 2)};
   }
-  background-color: ${props => props.theme.primaryColor};
+  background-color: ${props => props.theme.secondaryColor};
   color: ${props => props.theme.tertiaryColor};
   flex-shrink: 0;
 `
 
 const theme = {
-  backgroundColor: "#FAEDD4",
-  primaryColor: "#FAE4BB",
-  secondaryColor: "#FADBA2",
+  backgroundColor: "#EDDFDF",
+  primaryColor: "#EDE8E8",
+  secondaryColor: "#EDCACA",
   tertiaryColor: "#4A4A4A",
   quaternaryColor: "#696969",
   accentColor: "#701B1B",
+  shadowColor: "#B0B0B0"
 }
 
 export default Layout

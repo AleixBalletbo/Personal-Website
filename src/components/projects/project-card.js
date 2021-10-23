@@ -55,7 +55,7 @@ const Container = styled.a`
     margin: 0 ${rhythm(1 / 4)} ${rhythm(1 / 2)} ${rhythm(1 / 4)};
   }
   min-width: 300px;
-  box-shadow: 0 0 0;
+  box-shadow: 0 2px 4px ${props => props.theme.shadowColor};
 `
 
 const LeftBar = styled.div`

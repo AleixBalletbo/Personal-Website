@@ -66,6 +66,7 @@ const TextContainer = styled.div`
   border-radius: ${rhythm(1 / 4)};
   margin-left: ${rhythm(1 / 2)};
   margin-bottom: ${rhythm(1 / 2)};
+  box-shadow: 0 2px 4px ${props => props.theme.shadowColor};
 `
 
 const HeadlineContainer = styled.div`

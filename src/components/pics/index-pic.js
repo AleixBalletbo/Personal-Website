@@ -25,6 +25,7 @@ export default function IndexPic () {
 const Pic = styled(Img)`
   border-radius: 50%;
   min-width: 200px;
+  box-shadow: 0 2px 4px ${props => props.theme.shadowColor};
 `
 
 const indexPicQuery = graphql`

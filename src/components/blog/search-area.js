@@ -53,6 +53,7 @@ const SearchBar = styled.input`
   color: ${props => props.theme.tertiaryColor};
   flex: 1;
   width: 100%;
+  box-shadow: 0 2px 4px ${props => props.theme.shadowColor};
 `
 
 const CategorySelector = styled.select`
@@ -71,6 +72,7 @@ const CategorySelector = styled.select`
   background-repeat: no-repeat;
   background-position-x: 90%;
   background-position-y: 50%;
+  box-shadow: 0 2px 4px ${props => props.theme.shadowColor};
 `
 
 const categoriesQuery = graphql`

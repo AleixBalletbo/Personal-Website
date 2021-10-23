@@ -54,8 +54,9 @@ export default BlogPostTemplate
 const BlogContainer = styled.div`
   background-color: ${props => props.theme.primaryColor};
   border-radius: ${rhythm(1 / 4)};
+  box-shadow: 0 2px 4px ${props => props.theme.shadowColor};
   @media (max-width: 800px) {
-    background-color: ${props => props.theme.backgroundColor};
+    background-color: ${props => props.theme.primaryColor};
     border-radius: 0;
     margin: ${rhythm(-1 / 2)};
   }

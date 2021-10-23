@@ -88,7 +88,7 @@ const Title = styled.h1`
   }
   margin-top: 0;
   margin-bottom: 0;
-  color: ${props => props.theme.primaryColor};
+  color: ${props => props.theme.backgroundColor};
   align-self: center;
 `
 

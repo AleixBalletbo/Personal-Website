@@ -43,7 +43,7 @@ const Container = styled.a`
   flex-direction: row;
   margin-bottom: ${rhythm(1 / 2)};
   min-width: 300px;
-  box-shadow: 0 0 0;
+  box-shadow: 0 2px 4px ${props => props.theme.shadowColor};
 `
 
 const LeftBar = styled.div`
