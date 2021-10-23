@@ -78,7 +78,6 @@ const Title = styled.h3`
   font-family: Montserrat,sans-serif;
   margin-right: auto;
   @media (max-width: 800px) {
-    font-size: 5.5vw;
     margin-bottom: ${rhythm(1 / 4)};
   }
 `

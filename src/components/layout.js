@@ -67,12 +67,12 @@ const Footer = styled.footer`
 `
 
 const theme = {
-  backgroundColor: "#EDDFDF",
-  primaryColor: "#EDE8E8",
-  secondaryColor: "#EDCACA",
+  backgroundColor: "#EDF2FA",
+  primaryColor: "#F5F7FA",
+  secondaryColor: "#E1ECFA",
   tertiaryColor: "#4A4A4A",
-  quaternaryColor: "#696969",
-  accentColor: "#701B1B",
+  quaternaryColor: "#535353",
+  accentColor: "#1B4070",
   shadowColor: "#B0B0B0"
 }
 
