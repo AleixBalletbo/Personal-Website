@@ -24,7 +24,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-transformer-json`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-feed-mdx`,
     `gatsby-remark-reading-time`,
@@ -84,13 +83,6 @@ module.exports = {
           },
         ],
         plugins: [`gatsby-remark-images`],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        // edit below
-        // trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
     {

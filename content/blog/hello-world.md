@@ -6,7 +6,7 @@ title: Hello, World!
 description: Finally... we are live! The first post of my new personal website is here.
 tags:
   - Hello world
-  - first post
+  - First post
 category: "5"
 ---
 After some months of slowly but steady progress, my personal website is finally up and running! It has been a while since I decided to start a blog and build a personal website, but I'm quite happy with the final result.
