@@ -1,5 +1,4 @@
 import React from "react"
-import { Link, StaticQuery } from "gatsby"
 import styled, { ThemeProvider } from "styled-components"
 import { MDXProvider } from "@mdx-js/react"
 
@@ -46,7 +45,7 @@ const Content = styled.div`
   flex: 1;
   align-self: center;
   width: 100%;
-  max-width: ${rhythm(30)};
+  max-width: ${rhythm(35)};
   padding: ${rhythm(3 / 4)};
   @media (max-width: 800px) {
     padding: ${rhythm(1 / 2)};

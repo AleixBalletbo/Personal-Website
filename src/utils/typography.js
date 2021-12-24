@@ -1,17 +1,20 @@
 import Typography from "typography"
-import Wordpress2016 from "typography-theme-wordpress-2016"
+import FairyGatesTheme from "typography-theme-fairy-gates"
 
-Wordpress2016.overrideThemeStyles = () => {
+FairyGatesTheme.overrideThemeStyles = () => {
   return {
-    "a.gatsby-resp-image-link": {
+    "a": {
       boxShadow: `none`,
-    },
+      textDecoration: `none`,
+      textShadow: `none`,
+      backgroundImage: `none`
+    }
   }
 }
 
-delete Wordpress2016.googleFonts
+FairyGatesTheme.headerWeight = 640;
 
-const typography = new Typography(Wordpress2016)
+const typography = new Typography(FairyGatesTheme)
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {

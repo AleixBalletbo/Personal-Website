@@ -79,13 +79,13 @@ const Description = styled.p`
   margin-bottom: ${rhythm(1 / 2)};
   color: ${props => props.theme.quaternaryColor};
   white-space: pre-line;
+  text-align: justify;
 `
 
-const Section = styled.h3`
+const Section = styled.h2`
   margin-top: ${rhythm(1 / 2)};
   margin-bottom: ${rhythm(1 / 2)};
   color: ${props => props.theme.accentColor};
-  font-family: Montserrat,sans-serif;
   @media (max-width: 800px) {
     margin-bottom: ${rhythm(1 / 2)};
   }

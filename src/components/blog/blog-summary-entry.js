@@ -9,23 +9,21 @@ export default function BlogSummaryEntry (props) {
       <Container>
         <LeftBar color={props.category.color}/>
         <Content>
-          <TitleContainer>
-            <Title>
-              {props.title}
-            </Title>
-            <TagContainer>
-              <Category color={props.category.color}>
-                {props.category.label}
-              </Category>
-              {props.tags.map(tag => {
-                return (
-                  <Tag key={tag}>
-                    #{tag}
-                  </Tag>
-                )
-              })}
-            </TagContainer>
-          </TitleContainer>
+          <Title>
+            {props.title}
+          </Title>
+          <TagContainer>
+            <Category color={props.category.color}>
+              {props.category.label}
+            </Category>
+            {props.tags.map(tag => {
+              return (
+                <Tag key={tag}>
+                  #{tag}
+                </Tag>
+              )
+            })}
+          </TagContainer>
         </Content>
       </Container>
     </Link>
@@ -39,9 +37,6 @@ const Container = styled.div`
   flex-direction: row;
   margin-bottom: ${rhythm(1 / 2)};
   box-shadow: 0 2px 4px ${props => props.theme.shadowColor};
-  @media (max-width: 800px) {
-    margin-bottom: ${rhythm(1 / 2)};
-  }
   &:hover {
     box-shadow: 0 0 0;
   }
@@ -55,11 +50,8 @@ const LeftBar = styled.div`
 `
 
 const Content = styled.div`
-  padding: ${rhythm(1 / 4)};
+  padding: ${rhythm(1 / 3)};
   flex: 1;
-`
-
-const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -69,8 +61,7 @@ const Title = styled.h3`
   margin-top: 0;
   margin-bottom: ${rhythm(1 / 4)};
   color: ${props => props.theme.tertiaryColor};
-  font-family: Montserrat,sans-serif;
-  font-size: larger;
+  font-size: 1.25em;
 `
 
 const TagContainer = styled.div`
@@ -83,7 +74,6 @@ const Tag = styled.div`
   color: ${props => props.theme.tertiaryColor};
   margin: 0 ${rhythm(1 / 8)} 0 ${rhythm(1 / 8)};
   height: min-content;
-  font-size: 0.9em;
 `
 
 const Category = styled.div`
@@ -93,5 +83,4 @@ const Category = styled.div`
   padding: 0 ${rhythm(1 / 4)} 0 ${rhythm(1 / 4)};
   margin: 0 ${rhythm(1 / 8)} 0 ${rhythm(1 / 8)};
   height: min-content;
-  font-size: 0.9em;
 `

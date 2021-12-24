@@ -44,6 +44,9 @@ const Container = styled.a`
   margin-bottom: ${rhythm(1 / 2)};
   min-width: 300px;
   box-shadow: 0 2px 4px ${props => props.theme.shadowColor};
+  &:hover {
+    box-shadow: 0 0 0;
+  }
 `
 
 const LeftBar = styled.div`
@@ -57,21 +60,23 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: ${rhythm(1 / 4)};
+  padding: ${rhythm(1 / 3)};
 `
 
 const TitleContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: ${rhythm(1 / 8)}
+  margin-bottom: ${rhythm(1 / 4)};
+  @media (max-width: 800px) {
+    margin-bottom: ${rhythm(1 / 6)};
+  }
 `
 
 const Title = styled.h3`
   margin-top: 0;
   margin-bottom: 0;
   color: ${props => props.theme.tertiaryColor};
-  font-family: Montserrat,sans-serif;
-  font-size: larger;
+  font-size: 1.25em;
   align-self: center;
 `
 
@@ -90,7 +95,6 @@ const Stat = styled.div`
   margin-left: ${rhythm(1 / 4)};
   display: flex;
   flex-direction: row;
-  color: ${props => props.theme.quaternaryColor};
 `
 
 const StatNumber = styled.h5`
@@ -98,6 +102,7 @@ const StatNumber = styled.h5`
   margin-bottom: 0;
   margin-right: ${rhythm(1 / 10)};
   font-size: ${rhythm(3 / 4)};
+  color: ${props => props.theme.quaternaryColor};
 `
 
 const StarIcon = styled(StarImage)`
@@ -113,6 +118,5 @@ const ForkIcon = styled(ForkImage)`
 const Description = styled.p`
   color: ${props => props.theme.quaternaryColor};
   margin-bottom: 0;
-  font-size: 0.9em;
-  line-height: normal;
+  text-align: justify;
 `

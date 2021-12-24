@@ -56,6 +56,9 @@ const Container = styled.a`
   }
   min-width: 300px;
   box-shadow: 0 2px 4px ${props => props.theme.shadowColor};
+  &:hover {
+    box-shadow: 0 0 0;
+  }
 `
 
 const LeftBar = styled.div`
@@ -84,8 +87,7 @@ const TitleContainer = styled.div`
 const Title = styled.h3`
   margin-top: 0;
   margin-bottom: 0;
-  color: ${props => props.theme.accentColor};
-  font-family: Montserrat,sans-serif;
+  color: ${props => props.theme.tertiaryColor};
 `
 
 const StatsContainer = styled.div`
@@ -103,7 +105,6 @@ const Stat = styled.div`
   margin-left: ${rhythm(1 / 4)};
   display: flex;
   flex-direction: row;
-  color: ${props => props.theme.tertiaryColor};
 `
 
 const StatNumber = styled.h5`
@@ -111,6 +112,7 @@ const StatNumber = styled.h5`
   margin-bottom: 0;
   margin-right: ${rhythm(1 / 10)};
   font-size: ${rhythm(3/4)};
+  color: ${props => props.theme.tertiaryColor};
 `
 
 const StarIcon = styled(StarImage)`
@@ -125,6 +127,7 @@ const ForkIcon = styled(ForkImage)`
 
 const Description = styled.p`
   color: ${props => props.theme.quaternaryColor};
+  text-align: justify;
   margin-bottom: ${rhythm(1 / 4)};
   @media (max-width: 800px) {
     margin-bottom: ${rhythm(1 / 6)};
@@ -150,7 +153,9 @@ const UpdatedAt = styled.p`
   color: ${props => props.theme.quaternaryColor};
   margin-left: auto;
   margin-bottom: 0;
+  height: fit-content;
+  align-self: center;
   &:before {
-    content: 'Updated ';
+    content: 'Updated on ';
   }
 `

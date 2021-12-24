@@ -29,7 +29,7 @@ class IndexPage extends React.Component {
         <IntroContainer>
           <IntroHeader>
             <Name>Aleix Balletbó</Name>
-            <Briefing>Software & data engineer and technology enthusiast</Briefing>
+            <Briefing>Software passionate, neverending learner and technology enthusiast</Briefing>
             <SocialLinksContainer>
               <SocialLink href={`https://twitter.com/${social.twitter}`}>
                 <TwitterLogo/>
@@ -54,8 +54,8 @@ class IndexPage extends React.Component {
           Hi there 👋! I'm Aleix Balletbó, welcome to my personal corner of the internet!
         </Abstract>
         <Abstract>
-          I'm passionate about software engineering, and I'm currently specialized in Big Data technologies.
-          Here you will find a personal blog with my thoughts and learnings, as well as a collection of my personal projects and my professional path.
+          I'm passionate about software engineering, and I'm currently focused on Big Data technologies.
+          Here you will find a personal blog with my thoughts, learnings and experiences, as well as a showcase of my side projects and my professional path.
         </Abstract>
 
         <SummaryContainer>
@@ -88,7 +88,10 @@ const IntroContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap-reverse;
   justify-content: center;
-  margin-bottom: ${rhythm(1 / 2)};
+  margin-bottom: ${rhythm(3 / 4)};
+  @media (min-width: 800px) {
+    gap: ${rhythm(2)};
+  }
 `
 
 const IntroHeader = styled.div`
@@ -100,6 +103,7 @@ const Name = styled.h1`
   color: ${props => props.theme.accentColor};
   margin-top: ${rhythm(1 / 2)};
   margin-bottom: 0;
+  font-weight: 800;
 `
 
 const Briefing = styled.h3`
@@ -111,6 +115,7 @@ const Briefing = styled.h3`
 const SocialLinksContainer = styled.div`
   display: flex;
   flex-direction: row;
+  margin-bottom: ${rhythm(1 / 2)};
 `
 
 const SocialLink = styled.a`
@@ -155,14 +160,15 @@ const IndexPicContainer = styled.div`
 `
 
 const Abstract = styled.p`
-  margin-bottom: ${rhythm(1 / 4)};
+  margin-bottom: ${rhythm(1 / 2)};
   color: ${props => props.theme.quaternaryColor};
+  text-align: justify;
 `
 
 const SummaryContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: ${rhythm(3 / 4)} ${rhythm(-3 / 8)} 0 ${rhythm(-3 / 8)};
+  margin: ${rhythm(1 / 2)} ${rhythm(-3 / 8)} 0 ${rhythm(-3 / 8)};
   @media (max-width: 800px) {
     margin: ${rhythm(1 / 2)} ${rhythm(-1 / 4)} 0 ${rhythm(-1 / 4)};
   }

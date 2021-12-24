@@ -72,7 +72,7 @@ const InnerContainer = styled.div`
   margin-right: auto;
   width: 100%;
   flex: 1;
-  max-width: ${rhythm(30)};
+  max-width: ${rhythm(35)};
   padding: ${rhythm(1 / 2)};
   @media (max-width: 800px) {
     padding: ${rhythm(1 / 4)};
@@ -90,6 +90,7 @@ const Title = styled.h1`
   margin-bottom: 0;
   color: ${props => props.theme.backgroundColor};
   align-self: center;
+  font-weight: 800;
 `
 
 const ProfileLink = styled(Link)`

@@ -74,8 +74,7 @@ const TitleContainer = styled.div`
 const Title = styled.h3`
   margin-top: 0;
   margin-bottom: ${rhythm(1 / 3)};
-  color: ${props => props.theme.accentColor};
-  font-family: Montserrat,sans-serif;
+  color: ${props => props.theme.tertiaryColor};
   margin-right: auto;
   @media (max-width: 800px) {
     margin-bottom: ${rhythm(1 / 4)};
@@ -110,5 +109,6 @@ const Date = styled.small`
 const Description = styled.p`
   color: ${props => props.theme.quaternaryColor};
   margin-bottom: 0px;
+  text-align: justify;
 `
 

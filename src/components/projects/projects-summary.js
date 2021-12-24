@@ -10,11 +10,12 @@ export default function ProjectsSummary () {
       query={projectsSummaryQuery}
       render={data => {
         const allProjects = data.allGithubData.nodes[0].data.user.pinnedItems.nodes
+        const firstProjects = allProjects.slice(0, 3)
         return (
         <ProjectsSummaryContainer>
           <Title>Featured Projects</Title>
           {
-            allProjects.map(project => {
+            firstProjects.map(project => {
               return (
                 <ProjectSummaryCard
                   name={project.name}
@@ -41,11 +42,10 @@ const ProjectsSummaryContainer = styled.div`
   min-width: 300px;
 `
 
-const Title = styled.h3`
+const Title = styled.h2`
   margin-top: 0;
   margin-bottom: ${rhythm(1 / 2)};
   color: ${props => props.theme.accentColor};
-  font-family: Montserrat,sans-serif;
   @media (max-width: 800px) {
     margin-bottom: ${rhythm(1 / 2)};
   }
@@ -53,7 +53,7 @@ const Title = styled.h3`
 
 export const projectsSummaryQuery = graphql`
   query {
-    allGithubData {
+    allGithubData(limit: 3) {
       nodes {
         data {
           user {

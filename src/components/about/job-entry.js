@@ -65,7 +65,7 @@ const TextContainer = styled.div`
   padding: ${rhythm(1 / 2)};
   border-radius: ${rhythm(1 / 4)};
   margin-left: ${rhythm(1 / 2)};
-  margin-bottom: ${rhythm(1 / 2)};
+  margin-bottom: ${rhythm(3 / 4)};
   box-shadow: 0 2px 4px ${props => props.theme.shadowColor};
 `
 
@@ -79,33 +79,34 @@ const HeadlineContainer = styled.div`
   flex: 1;
   align-items: top;
   justify-content: space-between;
-  color: ${props => props.theme.tertiaryColor};
 `
 
-const Position = styled.h3`
+const Position = styled.h4`
   margin-top: 0;
   margin-bottom: 0;
   margin-right: ${rhythm(1 / 4)};
-  font-size: 1.1em;
+  color: ${props => props.theme.tertiaryColor};
 `
 
 const Duration = styled.h6`
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 0.9em;
   text-align: right;
+  color: ${props => props.theme.tertiaryColor};
 `
 
 const Description = styled.p`
   color: ${props => props.theme.quaternaryColor};
   margin-bottom: 0;
   white-space: pre-line;
+  text-align: justify;
 `
 
 const AchievementList = styled.ul`
   margin-top: ${rhythm(1 / 4)};
   margin-bottom: 0;
   margin-left: ${rhythm(3 / 4)};
+  text-align: justify;
   @media (max-width: 800px) {
     display: none;
   }

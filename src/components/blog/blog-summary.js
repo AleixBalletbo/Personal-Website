@@ -40,11 +40,10 @@ const BlogSummaryContainer = styled.div`
   min-width: 300px;
 `
 
-const Title = styled.h3`
+const Title = styled.h2`
   margin-top: 0;
   margin-bottom: ${rhythm(1 / 2)};
   color: ${props => props.theme.accentColor};
-  font-family: Montserrat,sans-serif;
   @media (max-width: 800px) {
     margin-bottom: ${rhythm(1 / 2)};
   }
@@ -52,7 +51,7 @@ const Title = styled.h3`
 
 export const blogSummaryQuery = graphql`
   query {
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 3) {
       edges {
         node {
           fields {

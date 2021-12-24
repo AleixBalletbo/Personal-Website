@@ -97,9 +97,6 @@ const Tag = styled.div`
   padding: 0 ${rhythm(1 / 4)} 0 ${rhythm(1 / 4)};
   margin: 0 ${rhythm(1 / 8)} 0 ${rhythm(1 / 8)};
   height: min-content;
-  @media (max-width: 800px) {
-    fbackground-color: ${props => props.theme.primaryColor};
-  }
 `
 const Category = styled(Tag)`
   color: ${props => props.theme.tertiaryColor};
@@ -108,12 +105,16 @@ const Category = styled(Tag)`
 
 const DateTime = styled.p`
   margin-bottom: ${rhythm(1 / 4)};
-  font-size: small;
+  font-size: 0.9em;
   color: ${props => props.theme.tertiaryColor};
 `
 
 const Content = styled.div`
   color: ${props => props.theme.quaternaryColor};
+  text-align: justify;
+  p {
+    margin-bottom: ${rhythm(1 / 2)};
+  }
 `
 
 export const pageQuery = graphql`

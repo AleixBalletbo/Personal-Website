@@ -90,7 +90,7 @@ export const pageQuery = graphql`
                   }
                 }
                 stargazerCount
-                updatedAt(fromNow: true)
+                updatedAt(formatString: "MMMM YYYY")
                 url
               }
             }
