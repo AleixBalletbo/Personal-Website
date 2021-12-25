@@ -2,7 +2,7 @@ import React from "react"
 import styled, { ThemeProvider } from "styled-components"
 import { MDXProvider } from "@mdx-js/react"
 
-import { rhythm, scale } from "../utils/typography"
+import { rhythm } from "../utils/typography"
 import Header from "./header/header.js"
 
 class Layout extends React.Component {
@@ -13,14 +13,7 @@ class Layout extends React.Component {
         <Wrapper>
           <Header type = {header}/>
           <Content>
-            <MDXProvider
-              components={{
-                a: props => <a {...props} style = {{color: theme.accentColor, boxShadow: `none`}}/>,
-                h2: props => <h2 {...props} style = {{color: theme.tertiaryColor}}/>
-              }}
-            >
-              {children}
-            </MDXProvider>
+            {children}
           </Content>
           <Footer>
             © Aleix Balletbó {new Date().getFullYear()}
@@ -33,6 +26,18 @@ class Layout extends React.Component {
     )
   }
 }
+
+const MyA = props => <a style = {{color: theme.accentColor, boxShadow: `none`}} {...props} />
+const MyH2 = props => <h2 style = {{color: theme.tertiaryColor}} {...props} />
+
+const components = {
+  a: MyA,
+  h2: MyH2
+}
+
+export const wrapRootElement = ({ element }) => (
+  <MDXProvider components={components}>{element}</MDXProvider>
+)
 
 const Wrapper = styled.div`
   min-height: 100vh;

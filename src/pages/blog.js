@@ -4,7 +4,7 @@ import { rhythm } from "../utils/typography"
 import styled from "styled-components"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import SearchArea from "../components/blog/search-area"
 import BlogEntry from "../components/blog/blog-entry"
 
@@ -84,7 +84,7 @@ const Blog = props => {
 
   return (
     <Layout location={props.location} title={siteTitle}>
-      <SEO title="Blog" />
+      <Seo title="Blog" />
       <Title>
         Blog
       </Title>
@@ -97,7 +97,7 @@ const Blog = props => {
               title={node.frontmatter.title || node.fields.slug}
               slug={node.fields.slug}
               date={node.frontmatter.date}
-              readingTime={node.fields.readingTime.text}
+              //readingTime={node.fields.readingTime.text}
               description={node.frontmatter.description}
               tags={node.frontmatter.tags}
               category={node.frontmatter.category}
@@ -135,9 +135,6 @@ export const pageQuery = graphql`
         node {
           fields {
             slug
-            readingTime {
-              text
-            }
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")

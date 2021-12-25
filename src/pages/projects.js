@@ -1,8 +1,8 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import ProjectCard from "../components/projects/project-card"
 import { rhythm } from "../utils/typography"
 
@@ -14,7 +14,7 @@ const Projects = props => {
 
   return (
     <Layout location={props.location} title={siteTitle}>
-      <SEO title="Projects" />
+      <Seo title="Projects" />
       <Title>
         Projects
       </Title>

@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import { rhythm } from "../utils/typography"
 
 class BlogPostTemplate extends React.Component {
@@ -15,7 +15,7 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO
+        <Seo
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
@@ -37,7 +37,7 @@ class BlogPostTemplate extends React.Component {
               })}
             </TagContainer>
             <DateTime>
-                {post.frontmatter.date} - {post.fields.readingTime.text}
+                {post.frontmatter.date} - Reading Time
               </DateTime>
             <Content>
               <MDXRenderer>{post.body}</MDXRenderer>
@@ -145,11 +145,6 @@ export const pageQuery = graphql`
               ...GatsbyImageSharpFluid
             }
           }
-        }
-      }
-      fields {
-        readingTime {
-          text
         }
       }
     }

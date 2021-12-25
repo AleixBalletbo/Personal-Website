@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import styled from "styled-components"
 import { rhythm } from "../utils/typography"
 import IndexPic from "../components/pics/index-pic"
@@ -15,7 +15,7 @@ const AboutMe = props => {
 
   return (
     <Layout location={props.location} title={siteTitle}>
-      <SEO title="About Me" />
+      <Seo title="About Me" />
       <Title>
         About Me
       </Title>

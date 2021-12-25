@@ -1,10 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
-import {rhythm, scale} from "../utils/typography"
+import { rhythm } from "../utils/typography"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import IndexPic from "../components/pics/index-pic"
 import BlogSummary from "../components/blog/blog-summary"
 import ProjectsSummary from "../components/projects/projects-summary"
@@ -21,7 +21,7 @@ class IndexPage extends React.Component {
     const social = data.site.siteMetadata.social
     return (
       <Layout location={this.props.location} title={siteTitle} header="index">
-        <SEO
+        <Seo
           title="Home"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />

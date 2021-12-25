@@ -18,7 +18,7 @@ const Header = props => {
               <ProfileLink to="/">
                 <ProfilePic/>
               </ProfileLink>
-              {props.type != "index" &&
+              {props.type !== "index" &&
                 <Title>
                   <Link
                     style={{
