@@ -1,19 +1,24 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
-import styled from "styled-components"
+import { GatsbyImage } from "gatsby-plugin-image"
+import { useTheme } from "styled-components"
 
 export default function IndexPic () {
+  const theme = useTheme()
   return (
     <StaticQuery
       query={indexPicQuery}
       render={data => {
         return (
-          <Pic
-            fixed={data.avatar.childImageSharp.fixed}
+          <GatsbyImage
+            image={data.avatar.childImageSharp.gatsbyImageData}
             alt={data.site.siteMetadata.author}
             imgStyle={{
-              marginBottom: 0
+              borderRadius: '50%',
+            }}
+            style={{
+              borderRadius: '50%',
+              boxShadow: '0 2px 4px ' + theme.shadowColor
             }}
           />
         )
@@ -22,19 +27,11 @@ export default function IndexPic () {
   )
 }
 
-const Pic = styled(Img)`
-  border-radius: 50%;
-  min-width: 200px;
-  box-shadow: 0 2px 4px ${props => props.theme.shadowColor};
-`
-
 const indexPicQuery = graphql`
   query indexPicQuery {
     avatar: file(absolutePath: { regex: "/profile.jpg/" }) {
       childImageSharp {
-        fixed(width: 200, height: 200, quality: 100) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(layout: FIXED, width: 200, height: 200, quality: 100)
       }
     }
     site {

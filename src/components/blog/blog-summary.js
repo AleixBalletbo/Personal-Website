@@ -63,7 +63,7 @@ export const blogSummaryQuery = graphql`
             description
             tags
             category {
-              id
+              catId
               label
               color
             }

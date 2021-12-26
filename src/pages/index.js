@@ -46,7 +46,7 @@ class IndexPage extends React.Component {
             </SocialLinksContainer>
           </IntroHeader>
           <IndexPicContainer>
-            <IndexPic/>
+            <IndexPic props={this.props}/>
           </IndexPicContainer>
         </IntroContainer>
 

@@ -71,7 +71,7 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-remark-vscode`,
+            resolve: `gatsby-remark-copy-linked-files`,
           },
           {
             resolve: `gatsby-remark-smartypants`,
@@ -118,8 +118,5 @@ module.exports = {
         }
       }
     }
-  ],
-  mapping: {
-    "Mdx.frontmatter.category": `CategoriesJson`
-  }
+  ]
 }

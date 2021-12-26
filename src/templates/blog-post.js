@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 
 import Layout from "../components/layout"
@@ -20,7 +20,7 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
         />
         <BlogContainer>
-          <Cover fluid={post.frontmatter.cover.childImageSharp.fluid}/>
+          <Cover image={post.frontmatter.cover.childImageSharp.gatsbyImageData}/>
           <Body>
             <Title>{post.frontmatter.title}</Title>
             <TagContainer>
@@ -62,7 +62,7 @@ const BlogContainer = styled.div`
   }
 `
 
-const Cover = styled(Img)`
+const Cover = styled(GatsbyImage)`
   width: 100%;
   aspect-ratio: 5/2;
   border-radius: ${rhythm(1 / 4)} ${rhythm(1 / 4)} 0 0;
@@ -135,15 +135,13 @@ export const pageQuery = graphql`
         description
         tags
         category {
-          id
+          catId
           label
           color
         }
         cover {
           childImageSharp {
-            fluid (maxWidth: 1000, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: FULL_WIDTH, quality: 100)
           }
         }
       }

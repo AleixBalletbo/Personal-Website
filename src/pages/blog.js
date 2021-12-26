@@ -142,7 +142,7 @@ export const pageQuery = graphql`
             description
             tags
             category {
-              id
+              catId
               label
               color
             }

@@ -42,7 +42,7 @@ const AboutMe = props => {
             return (
               <JobEntry
                 company={job.company}
-                icon={job.icon.src.childImageSharp.fixed}
+                icon={job.icon.src.childImageSharp.gatsbyImageData}
                 position={job.position}
                 startDate={job.startDate}
                 endDate={job.endDate}
@@ -104,9 +104,7 @@ export const pageQuery = graphql`
         icon {
           src {
             childImageSharp {
-              fixed(width: 80, height: 80, quality: 100) {
-                ...GatsbyImageSharpFixed
-              }
+              gatsbyImageData(layout: FIXED, width: 80, height: 80, quality: 100)
             }
           }
         }
