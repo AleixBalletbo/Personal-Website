@@ -19,7 +19,7 @@ export default function BlogSummaryEntry (props) {
             {props.tags.map(tag => {
               return (
                 <Tag key={tag}>
-                  #{tag}
+                  {'#'+tag}
                 </Tag>
               )
             })}
@@ -67,12 +67,16 @@ const Title = styled.h3`
 const TagContainer = styled.div`
   display: flex;
   flex: row;
+  flex-wrap: wrap;
   margin: 0 ${rhythm(-1 / 8)} 0 ${rhythm(-1 / 8)};
+  gap: ${rhythm(1 / 4)};
 `
 
 const Tag = styled.div`
   color: ${props => props.theme.tertiaryColor};
-  margin: 0 ${rhythm(1 / 8)} 0 ${rhythm(1 / 8)};
+  border-radius: ${rhythm(1 / 4)};
+  background-color: ${props => props.theme.secondaryColor};
+  padding: 0 ${rhythm(1 / 4)} 0 ${rhythm(1 / 4)};
   height: min-content;
 `
 
@@ -81,6 +85,5 @@ const Category = styled.div`
   border-radius: ${rhythm(1 / 4)};
   background-color: ${props => props.color};
   padding: 0 ${rhythm(1 / 4)} 0 ${rhythm(1 / 4)};
-  margin: 0 ${rhythm(1 / 8)} 0 ${rhythm(1 / 8)};
   height: min-content;
 `

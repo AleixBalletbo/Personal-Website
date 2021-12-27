@@ -22,6 +22,7 @@ const Projects = props => {
         {
           projects.map(project =>
             <ProjectCard
+              key={project.id}
               name={project.name}
               forks={project.forkCount}
               stars={project.stargazerCount}

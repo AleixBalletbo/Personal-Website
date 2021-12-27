@@ -27,16 +27,8 @@ class Layout extends React.Component {
   }
 }
 
-const MyA = props => <a style = {{color: theme.accentColor, boxShadow: `none`}} {...props} />
-const MyH2 = props => <h2 style = {{color: theme.tertiaryColor}} {...props} />
-
-const components = {
-  a: MyA,
-  h2: MyH2
-}
-
 export const wrapRootElement = ({ element }) => (
-  <MDXProvider components={components}>
+  <MDXProvider>
     {element}
   </MDXProvider>
 )

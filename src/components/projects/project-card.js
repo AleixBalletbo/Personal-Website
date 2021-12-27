@@ -21,7 +21,7 @@ export default function ProjectCard (props) {
               </Stat>
               <Stat>
                 <StatNumber>
-                {props.stars}
+                  {props.stars}
                 </StatNumber>
                 <StarIcon/>
               </Stat>

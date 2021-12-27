@@ -17,6 +17,7 @@ export default function BlogSummary () {
             allPosts.map(({node}) => {
               return (
                 <BlogSummaryEntry
+                  key={node.id}
                   title={node.frontmatter.title}
                   slug={node.fields.slug}
                   category={node.frontmatter.category}
@@ -54,6 +55,7 @@ export const blogSummaryQuery = graphql`
     allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 3) {
       edges {
         node {
+          id
           fields {
             slug
           }

@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { rhythm } from "../../utils/typography"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 export default function BlogEntry (props) {
   return(
@@ -27,12 +28,21 @@ export default function BlogEntry (props) {
             </TagContainer>
           </TitleContainer>
           <Date>
-            {props.date} - {props.readingTime}
+            {props.date}
           </Date>
           <Description>
             {props.description}
           </Description>
         </Content>
+        <ImageContainer>
+          <Cover
+            image={props.cover}
+            alt='cover'
+            style={{
+              height: 'fill-available'
+            }}
+          />
+        </ImageContainer>
       </Container>
     </Link>
   )
@@ -85,11 +95,14 @@ const TagContainer = styled.div`
   display: flex;
   flex: row;
   margin: 0 ${rhythm(-1 / 8)} ${rhythm(1 / 8)} ${rhythm(-1 / 8)};
+  gap: ${rhythm(1 / 4)};
 `
 
 const Tag = styled.div`
   color: ${props => props.theme.tertiaryColor};
-  margin: 0 ${rhythm(1 / 8)} 0 ${rhythm(1 / 8)};
+  border-radius: ${rhythm(1 / 4)};
+  background-color: ${props => props.theme.secondaryColor};
+  padding: 0 ${rhythm(1 / 4)} 0 ${rhythm(1 / 4)};
   height: min-content;
 `
 
@@ -98,7 +111,6 @@ const Category = styled.div`
   border-radius: ${rhythm(1 / 4)};
   background-color: ${props => props.color};
   padding: 0 ${rhythm(1 / 4)} 0 ${rhythm(1 / 4)};
-  margin: 0 ${rhythm(1 / 8)} 0 ${rhythm(1 / 8)};
   height: min-content;
 `
 
@@ -112,3 +124,21 @@ const Description = styled.p`
   text-align: justify;
 `
 
+const ImageContainer = styled.div`
+  width: 200px;
+  display: flex;
+  border-radius: 0 ${rhythm(1 / 4)} ${rhythm(1 / 4)} 0;
+  @media (max-width: 800px) {
+    display: none;
+  }
+`
+
+const Cover = styled(GatsbyImage)`
+  div {
+    height: auto !important;
+  }
+  img {
+    border-radius: 0 ${rhythm(1 / 4)} ${rhythm(1 / 4)} 0;
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 35% 100%);
+  }
+`

@@ -41,6 +41,7 @@ const AboutMe = props => {
           jobs.map(job => {
             return (
               <JobEntry
+                key={job.id}
                 company={job.company}
                 icon={job.icon.src.childImageSharp.gatsbyImageData}
                 position={job.position}
@@ -100,6 +101,7 @@ export const pageQuery = graphql`
     }
     allJobsJson {
       nodes {
+        id
         company
         icon {
           src {

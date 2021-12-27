@@ -1,20 +1,20 @@
 import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { useTheme } from "styled-components"
+import styled from "styled-components"
 
 export default function JobPic (props) {
-  const theme = useTheme()
   return (
-    <GatsbyImage
+    <Pic
       image={props.image}
       alt={props.company}
-      imgStyle={{
-        borderRadius: '50%',
-      }}
-      style={{
-        borderRadius: '50%',
-        boxShadow: '0 2px 4px ' + theme.shadowColor
-      }}
     />
   )
 }
+
+const Pic = styled(GatsbyImage)`
+  border-radius: 50%;
+  box-shadow: 0 2px 4px ${props => props.theme.shadowColor};
+  img {
+    border-radius: 50%;
+  }
+`

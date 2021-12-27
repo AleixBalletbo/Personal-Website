@@ -97,11 +97,11 @@ const Blog = props => {
               title={node.frontmatter.title || node.fields.slug}
               slug={node.fields.slug}
               date={node.frontmatter.date}
-              //readingTime={node.fields.readingTime.text}
               description={node.frontmatter.description}
               tags={node.frontmatter.tags}
               category={node.frontmatter.category}
-              excerpt={node.excerpt}/>
+              excerpt={node.excerpt}
+              cover={node.frontmatter.cover.childImageSharp.gatsbyImageData}/>
           )
         })}
       </div>
@@ -145,6 +145,11 @@ export const pageQuery = graphql`
               catId
               label
               color
+            }
+            cover {
+              childImageSharp {
+                gatsbyImageData(layout: FIXED, quality: 100)
+              }
             }
           }
         }

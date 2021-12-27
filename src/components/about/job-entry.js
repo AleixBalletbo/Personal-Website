@@ -27,9 +27,9 @@ export default function JobEntry (props) {
         </Description>
         <AchievementList>
           {
-            props.achievements.map(achievement => {
+            props.achievements.map((achievement, index) => {
               return (
-                <Achievement>
+                <Achievement key={index}>
                   {achievement}  
                 </Achievement>
               )

@@ -20,7 +20,10 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
         />
         <BlogContainer>
-          <Cover image={post.frontmatter.cover.childImageSharp.gatsbyImageData}/>
+          <Cover 
+            image={post.frontmatter.cover.childImageSharp.gatsbyImageData}
+            alt='cover'
+          />
           <Body>
             <Title>{post.frontmatter.title}</Title>
             <TagContainer>
@@ -37,7 +40,7 @@ class BlogPostTemplate extends React.Component {
               })}
             </TagContainer>
             <DateTime>
-                {post.frontmatter.date} - Reading Time
+                {post.frontmatter.date}
               </DateTime>
             <Content>
               <MDXRenderer>{post.body}</MDXRenderer>
@@ -63,11 +66,12 @@ const BlogContainer = styled.div`
 `
 
 const Cover = styled(GatsbyImage)`
-  width: 100%;
   aspect-ratio: 5/2;
-  border-radius: ${rhythm(1 / 4)} ${rhythm(1 / 4)} 0 0;
-  @media (max-width: 800px) {
-    border-radius: 0;
+  img {
+    border-radius: ${rhythm(1 / 4)} ${rhythm(1 / 4)} 0 0;
+    @media (max-width: 800px) {
+      border-radius: 0;
+    }
   }
 `
 
@@ -88,6 +92,7 @@ const TagContainer = styled.div`
   display: flex;
   flex: row;
   margin: 0 ${rhythm(-1 / 8)} ${rhythm(1 / 4)} ${rhythm(-1 / 8)};
+  gap: ${rhythm(1 / 4)};
 `
 
 const Tag = styled.div`
@@ -95,7 +100,6 @@ const Tag = styled.div`
   border-radius: ${rhythm(1 / 4)};
   background-color: ${props => props.theme.secondaryColor};
   padding: 0 ${rhythm(1 / 4)} 0 ${rhythm(1 / 4)};
-  margin: 0 ${rhythm(1 / 8)} 0 ${rhythm(1 / 8)};
   height: min-content;
 `
 const Category = styled(Tag)`

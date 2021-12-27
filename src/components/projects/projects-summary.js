@@ -18,6 +18,7 @@ export default function ProjectsSummary () {
             firstProjects.map(project => {
               return (
                 <ProjectSummaryCard
+                  key={project.id}
                   name={project.name}
                   forks={project.forkCount}
                   stars={project.stargazerCount}
