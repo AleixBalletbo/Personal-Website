@@ -148,7 +148,7 @@ export const pageQuery = graphql`
             }
             cover {
               childImageSharp {
-                gatsbyImageData(layout: FIXED, quality: 100)
+                gatsbyImageData(layout: FIXED, quality: 100, placeholder: BLURRED)
               }
             }
           }

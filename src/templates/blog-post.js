@@ -31,7 +31,6 @@ class BlogPostTemplate extends React.Component {
                 {post.frontmatter.category.label}
               </Category>
               {post.frontmatter.tags.map(tag => {
-                console.log(this.props)
                 return (
                   <Tag key={tag}>
                     #{tag}
@@ -145,7 +144,7 @@ export const pageQuery = graphql`
         }
         cover {
           childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH, quality: 100)
+            gatsbyImageData(layout: FULL_WIDTH, quality: 100, placeholder: DOMINANT_COLOR)
           }
         }
       }

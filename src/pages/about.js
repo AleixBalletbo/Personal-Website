@@ -106,7 +106,7 @@ export const pageQuery = graphql`
         icon {
           src {
             childImageSharp {
-              gatsbyImageData(layout: FIXED, width: 80, height: 80, quality: 100)
+              gatsbyImageData(layout: FIXED, width: 80, height: 80, quality: 100, placeholder: BLURRED)
             }
           }
         }

@@ -12,8 +12,6 @@ FairyGatesTheme.overrideThemeStyles = () => {
   }
 }
 
-FairyGatesTheme.headerWeight = 640;
-
 const typography = new Typography(FairyGatesTheme)
 
 // Hot reload typography in development.

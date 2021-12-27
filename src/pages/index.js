@@ -88,9 +88,10 @@ const IntroContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap-reverse;
   justify-content: center;
-  margin-bottom: ${rhythm(3 / 4)};
-  @media (min-width: 800px) {
-    gap: ${rhythm(2)};
+  margin-bottom: ${rhythm(1 / 2)};
+  gap: ${rhythm(2)};
+  @media (max-width: 800px) {
+    gap: ${rhythm(1 / 2)};
   }
 `
 
