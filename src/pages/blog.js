@@ -77,8 +77,8 @@ const Blog = props => {
 
   function filterPostsByCategory (categoryId, posts) {
     return posts.filter(post => {
-      const postCategoryId = post.node.frontmatter.category.id
-      return categoryId === "0" || categoryId === postCategoryId
+      const postCategoryId = post.node.frontmatter.category.catId
+      return categoryId === "0" || categoryId === postCategoryId.toString()
     })
   }
 

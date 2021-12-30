@@ -22,7 +22,7 @@ const SearchArea = props => (
               </option>
               {categories.map(category => {
                 return(
-                  <option key={category.id} value={category.id}>
+                  <option key={category.catId} value={category.catId}>
                     {category.label}
                   </option>
                 )
@@ -80,7 +80,7 @@ const categoriesQuery = graphql`
     allCategoriesJson {
       nodes {
         color
-        id
+        catId
         label
       }
     }
