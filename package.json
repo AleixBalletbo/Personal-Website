@@ -39,6 +39,7 @@
     "react-helmet": "^6.1.0",
     "react-switch": "^6.0.0",
     "react-typography": "^0.16.20",
+    "sharp": "^0.33.5",
     "styled-components": "^5.3.3",
     "typeface-quattrocento-sans": "^1.1.13",
     "typeface-work-sans": "^1.1.13",
@@ -65,5 +66,9 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "engines": {
+    "node": "22.13.1",
+    "npm": ">=10.0.0"
   }
 }

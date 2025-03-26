@@ -8,7 +8,6 @@ import IndexPic from "../components/pics/index-pic"
 import JobEntry from "../components/about/job-entry"
 
 const AboutMe = props => {
-
   const { data } = props
   const siteTitle = data.site.siteMetadata.title
   const jobs = data.allJobsJson.nodes
@@ -16,60 +15,47 @@ const AboutMe = props => {
   return (
     <Layout location={props.location} title={siteTitle}>
       <Seo title="About Me" />
-      <Title>
-        About Me
-      </Title>
       <IndexPicContainer>
-       <IndexPic/>
+        <IndexPic />
       </IndexPicContainer>
       <Description>
-        Hi there 👋! I'm Aleix Balletbó, software & data engineer and technology enthusiast.
+        Hi there 👋! I'm Aleix Balletbó, software & data engineer and technology
+        enthusiast.
       </Description>
       <Description>
-        I'm specialized in data technologies, and I've been working the last years in Big Data projects. 
-        However, I'm passionate about all the fields related to software engineering, and I have experience developing projects for mobile, web and videogames.
+        I'm specialized in data technologies, and I've been working the last
+        years in Big Data projects. However, I'm passionate about all the fields
+        related to software engineering, and I have experience developing
+        projects for mobile, web and videogames.
       </Description>
       <Description>
-        I believe that a strong knowledge of software architecture and best practices, combined with agile methodologies and a product mindset are the key principles 
-        to achieve the best possible outcome and deliver value that makes a diference. 
+        I believe that a strong knowledge of software architecture and best
+        practices, combined with agile methodologies and a product mindset are
+        the key principles to achieve the best possible outcome and deliver
+        value that makes a diference.
       </Description>
-      <Section>
-        Work Experience
-      </Section>
+      <Section>Work Experience</Section>
       <div>
-        {
-          jobs.map(job => {
-            return (
-              <JobEntry
-                key={job.id}
-                company={job.company}
-                icon={job.icon.src.childImageSharp.gatsbyImageData}
-                position={job.position}
-                startDate={job.startDate}
-                endDate={job.endDate}
-                description={job.description}
-                achievements={job.achievements}
-              />
-            )
-          })
-        }
+        {jobs.map(job => {
+          return (
+            <JobEntry
+              key={job.id}
+              company={job.company}
+              icon={job.icon.src.childImageSharp.gatsbyImageData}
+              position={job.position}
+              startDate={job.startDate}
+              endDate={job.endDate}
+              description={job.description}
+              achievements={job.achievements}
+            />
+          )
+        })}
       </div>
     </Layout>
   )
 }
 
 export default AboutMe
-
-const Title = styled.h1`
-  margin-top: 0;
-  margin-bottom: ${rhythm(3 / 4)};
-  text-align: center;
-  color: ${props => props.theme.accentColor};
-  @media (max-width: 800px) {
-    margin-bottom: ${rhythm(1 / 2)};
-    font-size: 7vw;
-  }
-`
 
 const IndexPicContainer = styled.div`
   align-self: center;
@@ -106,7 +92,13 @@ export const pageQuery = graphql`
         icon {
           src {
             childImageSharp {
-              gatsbyImageData(layout: FIXED, width: 80, height: 80, quality: 100, placeholder: BLURRED)
+              gatsbyImageData(
+                layout: FIXED
+                width: 80
+                height: 80
+                quality: 100
+                placeholder: BLURRED
+              )
             }
           }
         }

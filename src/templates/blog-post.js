@@ -20,9 +20,9 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
         />
         <BlogContainer>
-          <Cover 
+          <Cover
             image={post.frontmatter.cover.childImageSharp.gatsbyImageData}
-            alt='cover'
+            alt="cover"
           />
           <Body>
             <Title>{post.frontmatter.title}</Title>
@@ -31,16 +31,10 @@ class BlogPostTemplate extends React.Component {
                 {post.frontmatter.category.label}
               </Category>
               {post.frontmatter.tags.map(tag => {
-                return (
-                  <Tag key={tag}>
-                    #{tag}
-                  </Tag>
-                )
+                return <Tag key={tag}>#{tag}</Tag>
               })}
             </TagContainer>
-            <DateTime>
-                {post.frontmatter.date}
-              </DateTime>
+            <DateTime>{post.frontmatter.date}</DateTime>
             <Content>
               <MDXRenderer>{post.body}</MDXRenderer>
             </Content>
@@ -144,7 +138,11 @@ export const pageQuery = graphql`
         }
         cover {
           childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH, quality: 100, placeholder: DOMINANT_COLOR)
+            gatsbyImageData(
+              layout: FULL_WIDTH
+              quality: 100
+              placeholder: DOMINANT_COLOR
+            )
           }
         }
       }

@@ -11,15 +11,18 @@ class Layout extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <Wrapper>
-          <Header type = {header}/>
-          <Content>
-            {children}
-          </Content>
+          <Header type={header} />
+          <Content>{children}</Content>
           <Footer>
             © Aleix Balletbó {new Date().getFullYear()}
-            <br/>
-            Built with {' '}
-            <a style = {{color: theme.accentColor, boxShadow: `none`}} href="https://www.gatsbyjs.org">Gatsby</a>
+            <br />
+            Built with{" "}
+            <a
+              style={{ color: theme.accentColor, boxShadow: `none` }}
+              href="https://www.gatsbyjs.org"
+            >
+              Gatsby
+            </a>
           </Footer>
         </Wrapper>
       </ThemeProvider>
@@ -28,9 +31,7 @@ class Layout extends React.Component {
 }
 
 export const wrapRootElement = ({ element }) => (
-  <MDXProvider>
-    {element}
-  </MDXProvider>
+  <MDXProvider>{element}</MDXProvider>
 )
 
 const Wrapper = styled.div`
@@ -71,7 +72,7 @@ const theme = {
   tertiaryColor: "#4A4A4A",
   quaternaryColor: "#535353",
   accentColor: "#1B4070",
-  shadowColor: "#B0B0B0"
+  shadowColor: "#B0B0B0",
 }
 
 export default Layout

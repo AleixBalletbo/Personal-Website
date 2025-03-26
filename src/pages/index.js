@@ -29,38 +29,45 @@ class IndexPage extends React.Component {
         <IntroContainer>
           <IntroHeader>
             <Name>Aleix Balletbó</Name>
-            <Briefing>Software passionate, neverending learner and technology enthusiast</Briefing>
+            <Briefing>
+              Software passionate, neverending learner and technology enthusiast
+            </Briefing>
             <SocialLinksContainer>
               <SocialLink href={`https://twitter.com/${social.twitter}`}>
-                <TwitterLogo/>
+                <TwitterLogo />
               </SocialLink>
               <SocialLink href={`https://dev.to/${social.devto}`}>
-                <DevLogo/>
+                <DevLogo />
               </SocialLink>
               <SocialLink href={`https://github.com/${social.github}`}>
-                <GitHubLogo/>
+                <GitHubLogo />
               </SocialLink>
-              <SocialLink href={`https://www.linkedin.com/in/${social.linkedin}`}>
-                <LinkedinLogo/>
+              <SocialLink
+                href={`https://www.linkedin.com/in/${social.linkedin}`}
+              >
+                <LinkedinLogo />
               </SocialLink>
             </SocialLinksContainer>
           </IntroHeader>
           <IndexPicContainer>
-            <IndexPic props={this.props}/>
+            <IndexPic props={this.props} />
           </IndexPicContainer>
         </IntroContainer>
 
         <Abstract>
-          Hi there 👋! I'm Aleix Balletbó, welcome to my personal corner of the internet!
+          Hi there 👋! I'm Aleix Balletbó, welcome to my personal corner of the
+          internet!
         </Abstract>
         <Abstract>
-          I'm passionate about software engineering, and I'm currently focused on Big Data technologies.
-          Here you will find a personal blog with my thoughts, learnings and experiences, as well as a showcase of my side projects and my professional path.
+          I'm passionate about software engineering, and I'm currently focused
+          on Big Data technologies. Here you will find a personal blog with my
+          thoughts, learnings and experiences, as well as a showcase of my side
+          projects and my professional path.
         </Abstract>
 
         <SummaryContainer>
-          <BlogSummary/>
-          <ProjectsSummary/>
+          <BlogSummary />
+          <ProjectsSummary />
         </SummaryContainer>
       </Layout>
     )

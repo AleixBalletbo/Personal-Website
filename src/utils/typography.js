@@ -3,12 +3,12 @@ import FairyGatesTheme from "typography-theme-fairy-gates"
 
 FairyGatesTheme.overrideThemeStyles = () => {
   return {
-    "a": {
+    a: {
       boxShadow: `none`,
       textDecoration: `none`,
       textShadow: `none`,
-      backgroundImage: `none`
-    }
+      backgroundImage: `none`,
+    },
   }
 }
 
